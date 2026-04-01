@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: 'AVOID · Sistema contra la pérdida de citas en clínicas de Osona',
   description: 'Especialistas en automatización de agendas para clínicas en Vic y comarca. Recupera ingresos eliminando citas olvidadas con nuestro sistema inteligente.',
   icons: {
-    icon: '/favicon.ico', // o '/logo.png' si quieres usar el mismo logo
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico', // Esto es para cuando lo guardan en el iPhone
+    icon: '/favicon.ico?v=1', // o '/logo.png' si quieres usar el mismo logo
+    shortcut: '/favicon.ico?v=1',
+    apple: '/favicon.ico?v=1', // Esto es para cuando lo guardan en el iPhone
   },
   keywords: 'automatización clínicas Vic, gestión citas Osona, reducir ausencias pacientes, recordatorios whatsapp clínicas Cataluña',
   authors: [{ name: 'AVOID Studio' }],
