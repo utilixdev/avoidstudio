@@ -19,38 +19,37 @@ export default function Footer() {
                 className="opacity-80 hover:opacity-100 transition-opacity"
               />
             </div>
-            <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-relaxed">
+            <p className="text-white/20 text-[10px] font-bold uppercase tracking-widest max-w-xs leading-relaxed">
               Sistemas de automatización para negocios de alto rendimiento.
             </p>
           </div>
 
-          <nav className="flex flex-wrap gap-x-10 gap-y-3" aria-label="Navegación del pie de página">
+          <div className="flex flex-wrap gap-x-10 gap-y-3">
             {[
-              { label: 'Problema', href: '/#problema' },
-              { label: 'Sistema', href: '/#sistema' },
-              { label: 'FAQ', href: '/#faq' },
-              { label: 'Contacto', href: '/#contacto' },
+              { label: 'Problema', href: '/perdidas' },
+              { label: 'Sistema', href: '/sistema' },
+              { label: 'FAQ', href: '/faq' },
+              { label: 'Contacto', href: '/diagnostico' },
             ].map(l => (
               <a
                 key={l.label}
                 href={l.href}
-                aria-label={`Ir a la sección de ${l.label}`}
-                className="text-[10px] font-bold uppercase tracking-widest text-white/40 hover:text-[#B8FF2E] transition-colors"
+                className="text-[10px] font-bold uppercase tracking-widest text-white/25 hover:text-[#B8FF2E] transition-colors"
               >
                 {l.label}
               </a>
             ))}
-          </nav>
+          </div>
         </div>
 
-        {/* FILA 2: BLOQUE SEO OSONA (CENTRADO Y MÁS PEQUEÑO) */}
-        <div className="pt-8 border-t border-white/[0.04] flex justify-center">
-          <p className="text-[9px] text-white/30 leading-relaxed text-center max-w-4xl tracking-tight">
-            <span className="font-bold text-white/50 uppercase tracking-tighter mr-1">AVOID Studio · Especialistas en Automatización para Clínicas en Osona.</span> 
+        {/* FILA 2: BLOQUE SEO OSONA (IMPORTANTE: FUERA DE LOS CRÉDITOS) */}
+        <div className="pt-8 border-t border-white/[0.04]">
+          <p className="text-[10px] text-white/20 leading-relaxed text-center md:text-left max-w-5xl">
+            <span className="font-bold text-white/40">AVOID Studio · Especialistas en Automatización para Clínicas en Osona. </span> 
             Implementamos sistemas inteligentes de gestión de citas y reducción de no-shows para centros sanitarios, fisioterapeutas y odontólogos en 
-            <span className="text-white/40"> Vic, Manlleu, Torelló, Tona, Taradell, Centelles y Balenyà</span>. 
-            Soporte tecnológico en toda la comarca: 
-            <span className="text-white/40"> Roda de Ter, Santa Eugènia de Berga, Gurb, Calldetenes, Sant Julià de Vilatorta, Seva, Hostalets de Balenyà, Sant Hipòlit de Voltregà, Masies de Voltregà, Montesquiu y Prats de Lluçanès</span>. 
+            <span className="text-white/30"> Vic, Manlleu, Torelló, Tona, Taradell, Centelles y Balenyà </span>. 
+            Damos soporte tecnológico en toda la comarca: 
+            <span className="text-white/30"> Roda de Ter, Santa Eugènia de Berga, Gurb, Calldetenes, Sant Julià de Vilatorta, Seva, Hostalets de Balenyà, Sant Hipòlit de Voltregà, Masies de Voltregà, Montesquiu y Prats de Lluçanès</span>. 
             Digitalización mediante WhatsApp Marketing y Google Calendar en la Cataluña Central.
           </p>
         </div>
@@ -58,18 +57,18 @@ export default function Footer() {
         {/* FILA 3: LEGAL Y CRÉDITOS FINALES */}
         <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-wrap gap-6 items-center">
-            <span className="text-[9px] font-medium text-white/30 mono">© 2026 AVOID STRATEGIC STUDIO</span>
-            <a href="/aviso-legal" aria-label="Ver aviso legal" className="text-[9px] text-white/25 hover:text-white/50 transition-colors uppercase tracking-widest">Aviso Legal</a>
-            <a href="/privacidad" aria-label="Ver política de privacidad" className="text-[9px] text-white/25 hover:text-white/50 transition-colors uppercase tracking-widest">Privacidad</a>
-            <a href="/cookies" aria-label="Ver política de cookies" className="text-[9px] text-white/25 hover:text-white/50 transition-colors uppercase tracking-widest">Cookies</a>
+            <span className="text-[9px] font-medium text-white/20 mono">© 2026 AVOID STRATEGIC STUDIO</span>
+            <a href="/aviso-legal" className="text-[9px] text-white/15 hover:text-white/40 transition-colors uppercase tracking-widest">Aviso Legal</a>
+            <a href="/privacidad" className="text-[9px] text-white/15 hover:text-white/40 transition-colors uppercase tracking-widest">Privacidad</a>
+            <a href="/cookies" className="text-[9px] text-white/15 hover:text-white/40 transition-colors uppercase tracking-widest">Cookies</a>
           </div>
 
           <div className="flex items-center gap-3">
             <div className="w-1.5 h-1.5 rounded-full bg-[#B8FF2E] animate-pulse shadow-[0_0_8px_rgba(184,255,46,0.8)]" />
             <div className="flex items-center gap-2">
-               <span className="text-[9px] font-bold text-white/40 mono uppercase tracking-widest">
-                una creación de{' '}
-                <a href="https://www.utilix.es" target="_blank" rel="noopener noreferrer" aria-label="Visitar la web de UtiLiX" className="hover:text-[#B8FF2E] transition-colors">
+               <span className="text-[9px] font-bold text-white/35 mono uppercase tracking-widest">
+                AvoidStudio es una creación de{' '}
+                <a href="https://www.utilix.es" target="_blank" rel="noopener noreferrer" className="hover:text-[#B8FF2E] transition-colors">
                   UtiLiX
                 </a>
               </span>

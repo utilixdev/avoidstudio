@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico', // o '/logo.png' si quieres usar el mismo logo
     shortcut: '/favicon.ico',
-    apple: '/logo.png', // Esto es para cuando lo guardan en el iPhone
+    apple: '/favicon.ico', // Esto es para cuando lo guardan en el iPhone
   },
   keywords: 'automatización clínicas Vic, gestión citas Osona, reducir ausencias pacientes, recordatorios whatsapp clínicas Cataluña',
   authors: [{ name: 'AVOID Studio' }],
