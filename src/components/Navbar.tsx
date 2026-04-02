@@ -4,12 +4,14 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [visible, setVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => {
@@ -23,7 +25,8 @@ export default function Navbar() {
       }
       setLastScrollY(currentScrollY)
     }
-    window.addEventListener('scroll', onScroll)
+    // Añadido { passive: true } para optimizar el rendimiento del scroll
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [lastScrollY, open])
 
@@ -61,9 +64,25 @@ export default function Navbar() {
           <Image src="/logo.png" alt="Avoid Logo" width={110} height={28} priority className="acid-glow-svg" />
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop Links: Añadido px-1 y gap-6 para evitar cortes por tracking-widest */}
+        <div className="hidden md:flex items-center gap-6">
           {links.map(l => (
-            <Link key={l.label} href={l.href} className="text-[10px] font-bold uppercase tracking-widest text-white/40 hover:text-white transition-colors">{l.label}</Link>
+            <Link 
+              key={l.label} 
+              href={l.href} 
+              className={`relative px-1 text-[10px] font-bold uppercase tracking-widest transition-colors ${
+                pathname === l.href ? 'text-white' : 'text-white/40 hover:text-white'
+              }`}
+            >
+              {l.label}
+              {pathname === l.href && (
+                <motion.span
+                  layoutId="nav-indicator"
+                  className="absolute -bottom-1 left-0 right-0 h-[1px] bg-[#B8FF2E]"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+            </Link>
           ))}
         </div>
 
@@ -87,13 +106,13 @@ export default function Navbar() {
         </button>
       </motion.nav>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {open && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.3 }}
             className="fixed inset-0 z-[110] bg-[#04040A] flex flex-col items-start justify-center px-8 gap-6 pt-20"
           >
             <div className="absolute top-0 right-0 w-full h-full bg-[#B8FF2E]/5 blur-[120px] pointer-events-none" />
@@ -105,15 +124,17 @@ export default function Navbar() {
                   animate={{ y: 0 }}
                   exit={{ y: "100%" }}
                   transition={{ 
-                    duration: 0.8, 
+                    duration: 0.5, 
                     ease: [0.22, 1, 0.36, 1], 
-                    delay: i * 0.08 
+                    delay: i * 0.04 
                   }}
                 >
                   <Link 
                     href={l.href} 
                     onClick={() => setOpen(false)} 
-                    className="text-4xl sm:text-5xl font-black uppercase tracking-tighter text-white/20 hover:text-[#B8FF2E] transition-all active:scale-95 italic block"
+                    className={`text-4xl sm:text-5xl font-black uppercase tracking-tighter transition-all active:scale-95 italic block px-1 ${
+                      pathname === l.href ? 'text-[#B8FF2E]' : 'text-white/20 hover:text-[#B8FF2E]'
+                    }`}
                   >
                     {l.label}
                   </Link>
@@ -124,7 +145,8 @@ export default function Navbar() {
             <motion.div 
               initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }} 
-              transition={{ delay: 0.5 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ delay: 0.3 }}
               className="mt-4"
             >
               <Link href="/diagnostico" onClick={() => setOpen(false)} className="btn-acid scale-110 origin-left">Solicitar Demo <ArrowRight size={14} /></Link>

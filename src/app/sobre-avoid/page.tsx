@@ -1,38 +1,39 @@
 'use client'
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Zap } from 'lucide-react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
+import { ArrowRight, Zap } from 'lucide-react'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
+// ── COPY — misma estructura, otras palabras ──────────────────────
 const problems = [
-  'Procesos que dependían siempre de una persona',
-  'Herramientas desconectadas entre sí',
-  'Tiempo invertido en tareas que podían funcionar solas',
-  'Pacientes que no volvían porque nadie les hacía seguimiento',
+  'Todo dependía de que una persona concreta estuviera presente',
+  'Cada herramienta funcionaba por separado, sin hablar con las demás',
+  'El tiempo del equipo se iba en cosas que podían hacerse solas',
+  'Había pacientes que desaparecían porque nadie los llamaba después',
 ]
 
 const understood = [
-  'No se trataba de "ordenar" procesos. Se trataba de rediseñarlos.',
-  'Cada hora manual que se automatiza es facturación que se recupera.',
-  'Un sistema bien construido trabaja aunque no estés mirando.',
+  'El problema no era hacer las cosas más rápido. Era hacer otras cosas.',
+  'Cada tarea manual que se elimina es tiempo que se convierte en dinero.',
+  'Un buen sistema sigue trabajando incluso cuando nadie está mirando.',
 ]
 
 const method = [
   {
     n: '01',
-    t: 'Diagnóstico honesto',
-    d: 'Antes de proponer nada, entendemos cómo funciona tu negocio por dentro. Dónde se escapa el dinero. Dónde se pierde tiempo.',
+    t: 'Análisis sin filtros',
+    d: 'Antes de proponer nada, miramos por dentro cómo funciona tu negocio de verdad. Qué está costando dinero. Qué está costando tiempo.',
   },
   {
     n: '02',
-    t: 'Arquitectura a medida',
-    d: 'No hay plantillas. Cada sistema se diseña para la realidad operativa de tu clínica. Lo que funciona para una no sirve para otra.',
+    t: 'Diseño específico para ti',
+    d: 'No usamos la misma solución para todos. Cada sistema se construye pensando en cómo funciona tu clínica concreta. Lo que sirve para una no encaja en otra.',
   },
   {
     n: '03',
-    t: 'Resultados medibles',
-    d: 'Si no se puede medir, no cuenta. Trabajamos con métricas reales: no-shows recuperados, facturación generada, horas liberadas.',
+    t: 'Números reales, no estimaciones',
+    d: 'Si no se puede medir, no cuenta. Trabajamos con datos concretos: huecos recuperados, dinero generado, horas que ya no tienes que dedicar.',
   },
 ]
 
@@ -59,8 +60,10 @@ export default function SobreAvoid() {
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex flex-col justify-end pb-20 px-6 md:px-20 pt-40 overflow-hidden grid-bg">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(184,255,46,0.05) 0%, transparent 70%)' }} />
+        <div
+          className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(184,255,46,0.05) 0%, transparent 70%)' }}
+        />
 
         <div className="max-w-5xl relative z-10">
           <motion.div
@@ -79,8 +82,8 @@ export default function SobreAvoid() {
             transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(3rem,8vw,8rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-8"
           >
-            <span className="text-white/15">De la idea</span><br />
-            <span className="text-[#B8FF2E] acid-glow">al sistema.</span>
+            <span className="text-white/15">Del problema</span><br />
+            <span className="text-[#B8FF2E] acid-glow">a la solución.</span>
           </motion.h1>
 
           <motion.p
@@ -89,8 +92,8 @@ export default function SobreAvoid() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white/40 text-lg md:text-2xl font-medium max-w-2xl leading-relaxed"
           >
-            AVOID nace de ver cómo clínicas que ya funcionaban bien seguían perdiendo
-            dinero por procesos que podían automatizarse.
+            AVOID nació de ver, una y otra vez, clínicas que funcionaban bien
+            pero perdían dinero por cosas que se podían solucionar solas.
           </motion.p>
         </div>
       </section>
@@ -101,7 +104,7 @@ export default function SobreAvoid() {
           <Section>
             <div className="text-[9px] font-black uppercase tracking-widest text-[#B8FF2E]/50 mb-6 mono">// El origen</div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight uppercase mb-8">
-              Lo que vimos
+              Lo que encontramos
             </h2>
             <div className="flex flex-col gap-4">
               {problems.map((p, i) => (
@@ -132,8 +135,8 @@ export default function SobreAvoid() {
             </div>
             <blockquote className="border-l-2 border-[#B8FF2E]/40 pl-6">
               <p className="text-white/30 text-sm italic leading-relaxed font-medium">
-                "Así fue tomando forma AVOID. No como un producto. Como una respuesta
-                a un problema real que veíamos repetirse en cada clínica."
+                "Así fue tomando forma AVOID. No como un producto. Como la respuesta
+                natural a algo que veíamos pasar en todas y cada una de las clínicas."
               </p>
             </blockquote>
           </Section>
@@ -146,23 +149,24 @@ export default function SobreAvoid() {
           <Section>
             <div className="pill mb-8 inline-flex">Hoy</div>
             <h2 className="text-[clamp(2rem,5vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-10">
-              <span className="text-white/20">Menos improvisación.</span><br />
-              <span className="text-[#B8FF2E] acid-glow">Más sistema.</span>
+              <span className="text-white/20">Menos ruido.</span><br />
+              <span className="text-[#B8FF2E] acid-glow">Más resultado.</span>
             </h2>
             <p className="text-white/40 text-lg font-medium max-w-2xl mx-auto leading-relaxed">
-              Diseñamos sistemas que conectan herramientas, automatizan lo repetitivo
-              y reducen la fricción operativa. El resultado: tu clínica factura más
-              sin depender de que alguien esté pendiente de todo.
+              Conectamos las herramientas que ya usas, eliminamos las tareas que
+              consumen tiempo sin generar valor y reducimos todo lo que frena a tu
+              clínica. El resultado: facturación que crece sin que tengas que estar
+              pendiente de todo.
             </p>
           </Section>
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
             {[
-              { val: '72h', label: 'Setup completo' },
-              { val: '−90%', label: 'No-shows' },
-              { val: '×4', label: 'ROI medio' },
-              { val: '24/7', label: 'Activo siempre' },
+              { val: '72h',  label: 'Setup completo'  },
+              { val: '−38%', label: 'No-shows'        },
+              { val: '×4',   label: 'ROI medio'       },
+              { val: '24/7', label: 'Activo siempre'  },
             ].map((s, i) => (
               <Section key={i}>
                 <div className="p-6 border border-white/5 bg-white/[0.02] text-center">
@@ -181,8 +185,8 @@ export default function SobreAvoid() {
           <Section className="mb-16 md:mb-20">
             <div className="pill mb-8 inline-flex">Cómo trabajamos</div>
             <h2 className="text-[clamp(2rem,5vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase">
-              <span className="text-white/20">Sin promesas.</span><br />
-              <span className="text-[#B8FF2E] acid-glow">Sin venta.</span>
+              <span className="text-white/20">Sin rodeos.</span><br />
+              <span className="text-[#B8FF2E] acid-glow">Sin humo.</span>
             </h2>
           </Section>
 
@@ -214,8 +218,8 @@ export default function SobreAvoid() {
               <span className="text-[#B8FF2E] acid-glow">hablar?</span>
             </h2>
             <p className="text-white/40 font-medium mb-10 max-w-md mx-auto leading-relaxed">
-              Analizamos tu operativa en 30 minutos y te decimos exactamente cuánto
-              estás perdiendo y cómo recuperarlo.
+              En 30 minutos vemos juntos cuánto dinero está saliendo por la puerta
+              y qué hace falta para pararlo.
             </p>
             <a href="/diagnostico" className="btn-acid inline-flex">
               Solicitar diagnóstico gratuito <ArrowRight size={14} />
