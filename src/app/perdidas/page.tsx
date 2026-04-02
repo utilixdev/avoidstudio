@@ -222,21 +222,21 @@ function Calculadora() {
   const pct         = Math.min(Math.round((recTotal / perdidaTotal) * 100), 95)
 
   const sliders = [
-    { label: 'Citas por mes',         val: citas,          set: setCitas,    min: 20,  max: 400, step: 10, suffix: '',  hint: 'Total citas al mes de toda la clínica' },
-    { label: 'Ticket medio / cita',   val: precio,         set: setPrecio,   min: 30,  max: 300, step: 5,  suffix: '€', hint: 'Dental/estética: 80–200€ · Fisio: 40–70€ · Psicología: 60–90€' },
-    { label: 'Tasa de no-shows',      val: noshow,         set: setNoshow,   min: 5,   max: 40,  step: 1,  suffix: '%', hint: 'Media sector privado España: 14–22%. Si no lo sabes, deja 18%.' },
+    { label: 'Citas por mes',         val: citas,          set: setCitas,     min: 20,  max: 400, step: 10, suffix: '',  hint: 'Total citas al mes de toda la clínica' },
+    { label: 'Ticket medio / cita',   val: precio,          set: setPrecio,    min: 30,  max: 300, step: 5,  suffix: '€', hint: 'Dental/estética: 80–200€ · Fisio: 40–70€ · Psicología: 60–90€' },
+    { label: 'Tasa de no-shows',      val: noshow,          set: setNoshow,    min: 5,   max: 40,  step: 1,  suffix: '%', hint: 'Media sector privado España: 14–22%. Si no lo sabes, deja 18%.' },
     { label: 'Personas en el equipo', val: personasEquipo, set: setPersonas, min: 1,   max: 8,   step: 1,  suffix: '',  hint: 'Personas que gestionan citas, WhatsApps y confirmaciones.' },
   ]
 
   return (
-    <div ref={ref} className="grid lg:grid-cols-[1.2fr_1fr] gap-10 items-start">
+    <div ref={ref} className="grid lg:grid-cols-[1.2fr_1fr] gap-10 items-start px-0 sm:px-0 overflow-visible">
 
       {/* LEFT: CONTROLES */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.8 }}
-        className="flex flex-col gap-8"
+        className="flex flex-col gap-8 w-full"
       >
 
         {/* Selector de perfil */}
@@ -266,45 +266,47 @@ function Calculadora() {
           </div>
         </div>
 
-        {/* Sliders */}
-        {sliders.map((s, i) => (
-          <div key={i}>
-            <div className="flex justify-between items-center mb-1.5">
-              <span className="text-xs font-bold uppercase tracking-widest text-white/40">{s.label}</span>
-              <span className="mono font-extrabold text-[#B8FF2E] text-sm">
-                {s.suffix === '€' && s.suffix}{s.val}{s.suffix === '%' && '%'}
-                {!s.suffix && s.label.includes('Personas') && ` ${s.val > 1 ? 'personas' : 'persona'}`}
-              </span>
+        {/* Sliders con corrección de ancho y visibilidad */}
+        <div className="flex flex-col gap-8 px-4">
+          {sliders.map((s, i) => (
+            <div key={i} className="w-full overflow-visible">
+              <div className="flex justify-between items-center mb-1.5 w-full pr-1">
+                <span className="text-xs font-bold uppercase tracking-widest text-white/40">{s.label}</span>
+                <span className="mono font-extrabold text-[#B8FF2E] text-sm flex-shrink-0 ml-4">
+                  {s.suffix === '€' && s.suffix}{s.val}{s.suffix === '%' && '%'}
+                  {!s.suffix && s.label.includes('Personas') && ` ${s.val > 1 ? 'personas' : 'persona'}`}
+                </span>
+              </div>
+              <p className="text-white/20 text-[10px] font-medium mb-3 pr-8">{s.hint}</p>
+              <input
+                type="range" min={s.min} max={s.max} step={s.step} value={s.val}
+                onChange={e => s.set(Number(e.target.value))}
+                className="w-full cursor-pointer appearance-none h-[3px] rounded-full outline-none"
+                style={{
+                  accentColor: '#B8FF2E',
+                  background: `linear-gradient(to right, #B8FF2E ${((s.val - s.min) / (s.max - s.min)) * 100}%, rgba(255,255,255,0.08) ${((s.val - s.min) / (s.max - s.min)) * 100}%)`,
+                }}
+              />
+              <div className="flex justify-between mt-1.5">
+                <span className="text-[9px] text-white/15 mono">
+                  {s.suffix === '€' && s.suffix}{s.min}{s.suffix === '%' && '%'}
+                </span>
+                <span className="text-[9px] text-white/15 mono pr-1">
+                  {s.suffix === '€' && s.suffix}{s.max}{s.suffix === '%' && '%'}
+                </span>
+              </div>
             </div>
-            <p className="text-white/20 text-[10px] font-medium mb-3">{s.hint}</p>
-            <input
-              type="range" min={s.min} max={s.max} step={s.step} value={s.val}
-              onChange={e => s.set(Number(e.target.value))}
-              className="w-full cursor-pointer appearance-none h-[3px] rounded-full outline-none"
-              style={{
-                accentColor: '#B8FF2E',
-                background: `linear-gradient(to right, #B8FF2E ${((s.val - s.min) / (s.max - s.min)) * 100}%, rgba(255,255,255,0.08) ${((s.val - s.min) / (s.max - s.min)) * 100}%)`,
-              }}
-            />
-            <div className="flex justify-between mt-1.5">
-              <span className="text-[9px] text-white/15 mono">
-                {s.suffix === '€' && s.suffix}{s.min}{s.suffix === '%' && '%'}
-              </span>
-              <span className="text-[9px] text-white/15 mono">
-                {s.suffix === '€' && s.suffix}{s.max}{s.suffix === '%' && '%'}
-              </span>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {/* Desglose pérdidas */}
-        <div className="border border-white/[0.06] bg-white/[0.01] p-6">
+        <div className="border border-white/[0.06] bg-white/[0.01] p-5 sm:p-6 w-full">
           <div className="mono text-[9px] text-white/20 mb-4">// Desglose mensual de pérdidas</div>
           <div className="flex flex-col gap-3">
             {[
-              { icon: UserX,        label: `${noshowsMes} no-shows × ${precio}€/cita`,                                                              val: perdidaNoshow,    color: '#EF4444' },
-              { icon: Clock,        label: `${personasEquipo} persona${personasEquipo > 1 ? 's' : ''} × 15h/sem × 15€/h × 4 sem`,                  val: perdidaEquipo,    color: '#F97316' },
-              { icon: TrendingDown, label: '35% pacientes sin seguimiento activo',                                                                    val: perdidaPacientes, color: '#EF4444' },
+              { icon: UserX,        label: `${noshowsMes} no-shows × ${precio}€/cita`,                                         val: perdidaNoshow,    color: '#EF4444' },
+              { icon: Clock,        label: `${personasEquipo} persona${personasEquipo > 1 ? 's' : ''} × 15h/sem × 15€/h × 4 sem`,  val: perdidaEquipo,    color: '#F97316' },
+              { icon: TrendingDown, label: '35% pacientes sin seguimiento activo',                                             val: perdidaPacientes, color: '#EF4444' },
             ].map((row, i) => (
               <div key={i} className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-2 min-w-0">
@@ -331,7 +333,7 @@ function Calculadora() {
         initial={{ opacity: 0, x: 20 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.8, delay: 0.15 }}
-        className="flex flex-col gap-4 lg:sticky lg:top-28"
+        className="flex flex-col gap-4 lg:sticky lg:top-28 w-full"
       >
         {/* Pérdida */}
         <div className="p-6 border border-red-500/20 bg-red-500/[0.03]">
@@ -404,7 +406,7 @@ function Calculadora() {
         </div>
 
         {/* Fuente */}
-        <div className="flex items-start gap-2">
+        <div className="flex items-start gap-2 px-2">
           <button onClick={() => setShowInfo(!showInfo)} className="mt-0.5 flex-shrink-0">
             <Info size={11} className="text-white/20 hover:text-white/40 transition-colors" />
           </button>
@@ -437,7 +439,7 @@ function Calculadora() {
 // ── PÁGINA PRINCIPAL ─────────────────────────────────────────────
 export default function PerdidasPage() {
   return (
-    <main className="relative">
+    <main className="relative overflow-x-hidden">
       <Navbar />
 
       {/* HERO */}
@@ -475,7 +477,7 @@ export default function PerdidasPage() {
       </section>
 
       {/* RESUMEN STATS */}
-      <section className="section py-12 md:py-16 border-b border-white/5">
+      <section className="section py-12 md:py-16 border-b border-white/5 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { val: '14–22%', label: 'Tasa de no-shows en clínicas privadas', color: '#EF4444' },
@@ -498,7 +500,7 @@ export default function PerdidasPage() {
       </section>
 
       {/* LOS 4 GOTEOS */}
-      <section className="section">
+      <section className="section px-6">
         <div className="max-w-5xl mx-auto">
           <FadeIn className="mb-12 md:mb-16">
             <div className="pill mb-6 inline-flex" style={{ borderColor: 'rgba(239,68,68,0.25)', color: '#EF4444', background: 'rgba(239,68,68,0.04)' }}>
@@ -516,7 +518,7 @@ export default function PerdidasPage() {
       </section>
 
       {/* EL EFECTO COMPUESTO */}
-      <section className="section bg-[#060610] border-y border-white/5">
+      <section className="section bg-[#060610] border-y border-white/5 px-6">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <FadeIn>
             <div className="pill mb-8 inline-flex" style={{ borderColor: 'rgba(239,68,68,0.25)', color: '#EF4444', background: 'rgba(239,68,68,0.04)' }}>
@@ -566,8 +568,8 @@ export default function PerdidasPage() {
       </section>
 
       {/* CALCULADORA */}
-      <section className="section" id="calculadora">
-        <div className="max-w-5xl mx-auto">
+      <section className="section px-6" id="calculadora">
+        <div className="max-w-5xl mx-auto overflow-visible">
           <FadeIn className="mb-12 md:mb-16">
             <div className="pill mb-6 inline-flex">
               <Euro size={10} />
@@ -577,7 +579,7 @@ export default function PerdidasPage() {
               <span className="text-white/15">Tus números,</span><br />
               <span className="text-[#B8FF2E] acid-glow">tu pérdida real.</span>
             </h2>
-            <p className="text-white/30 text-sm font-medium mt-4 max-w-lg">
+            <p className="text-white/30 text-sm font-medium mt-4 max-w-lg leading-relaxed">
               Selecciona tu especialidad para cargar los valores por defecto del sector,
               o ajusta manualmente cada parámetro.
               El cálculo incluye los cuatro goteos, no solo los no-shows.
@@ -588,7 +590,7 @@ export default function PerdidasPage() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="section bg-[#060610] border-t border-white/5">
+      <section className="section bg-[#060610] border-t border-white/5 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <h2 className="text-[clamp(2rem,5vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-8">
@@ -603,10 +605,10 @@ export default function PerdidasPage() {
               Tú pasas consulta. Nosotros llenamos la silla.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="/diagnostico" className="btn-acid">
+              <a href="/diagnostico" className="btn-acid w-full sm:w-auto px-10">
                 Solicitar diagnóstico gratuito <ArrowRight size={13} />
               </a>
-              <a href="/#sistema" className="btn-ghost">
+              <a href="/#sistema" className="btn-ghost w-full sm:w-auto">
                 Ver cómo funciona el sistema
               </a>
             </div>

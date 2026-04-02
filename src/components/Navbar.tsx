@@ -30,7 +30,7 @@ export default function Navbar() {
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden'
-      document.body.style.overscrollBehavior = 'none' // Bloquea el pull-to-refresh
+      document.body.style.overscrollBehavior = 'none'
       document.body.style.touchAction = 'none'
     } else {
       document.body.style.overflow = ''
@@ -90,22 +90,44 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[110] bg-[#04040A] flex flex-col items-start justify-center px-8 gap-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-[110] bg-[#04040A] flex flex-col items-start justify-center px-8 gap-6 pt-20"
           >
             <div className="absolute top-0 right-0 w-full h-full bg-[#B8FF2E]/5 blur-[120px] pointer-events-none" />
+            
             {links.map((l, i) => (
-              <motion.div key={l.label} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 + i * 0.05 }}>
-                <Link href={l.href} onClick={() => setOpen(false)} className="text-5xl font-black uppercase tracking-tighter text-white/20 hover:text-[#B8FF2E] transition-all active:scale-95 italic">
-                  {l.label}
-                </Link>
-              </motion.div>
+              <div key={l.label} className="overflow-hidden">
+                <motion.div
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  exit={{ y: "100%" }}
+                  transition={{ 
+                    duration: 0.8, 
+                    ease: [0.22, 1, 0.36, 1], 
+                    delay: i * 0.08 
+                  }}
+                >
+                  <Link 
+                    href={l.href} 
+                    onClick={() => setOpen(false)} 
+                    className="text-4xl sm:text-5xl font-black uppercase tracking-tighter text-white/20 hover:text-[#B8FF2E] transition-all active:scale-95 italic block"
+                  >
+                    {l.label}
+                  </Link>
+                </motion.div>
+              </div>
             ))}
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
-              <Link href="/diagnostico" onClick={() => setOpen(false)} className="btn-acid mt-4 scale-125 origin-left">Solicitar Demo <ArrowRight size={14} /></Link>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ delay: 0.5 }}
+              className="mt-4"
+            >
+              <Link href="/diagnostico" onClick={() => setOpen(false)} className="btn-acid scale-110 origin-left">Solicitar Demo <ArrowRight size={14} /></Link>
             </motion.div>
           </motion.div>
         )}
