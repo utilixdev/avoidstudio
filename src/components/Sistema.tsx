@@ -8,71 +8,71 @@ const flows = [
     id: 1,
     icon: Bell,
     color: '#B8FF2E',
-    title: 'Recordatorio 48h',
-    trigger: 'Cada día 9:00h',
-    desc: 'El sistema lee el calendario, extrae nombre y teléfono, detecta si es primera visita o rutina y envía un WhatsApp personalizado 48h antes.',
-    steps: ['Scheduler dispara a las 9h', 'Lee citas de pasado mañana', 'Extrae datos del título del evento', 'Genera mensaje según tipo de visita', 'Envía vía Twilio WhatsApp'],
-    wa: 'Hola Laura! 👋 Te confirmamos tu sesión de *FISIO* el *jueves 20* a las *11:00h*.\n\nPor favor responde:\n✅ *SÍ* para confirmar\n❌ *NO* si necesitas cancelar',
+    title: 'Recordatori 48h',
+    trigger: 'Cada dia 9:00h',
+    desc: 'El sistema llegeix el calendari, extreu nom i telèfon, detecta si és primera visita o rutina i envia un WhatsApp personalitzat 48h abans.',
+    steps: ['Scheduler dispara a les 9h', 'Llegeix cites d\'avui en dos dies', 'Extreu dades del títol de l\'event', 'Genera missatge segons tipus de visita', 'Envia via Twilio WhatsApp'],
+    wa: 'Hola Laura! 👋 Et confirmem la teva sessió de *FISIO* el *dijous 20* a les *11:00h*.\n\nSi us plau respon:\n✅ *SÍ* per confirmar\n❌ *NO* si necessites cancel·lar',
   },
   {
     id: 2,
     icon: MessageSquare,
     color: '#22C55E',
-    title: 'Gestión respuestas',
+    title: 'Gestió de respostes',
     trigger: 'Webhook 24/7',
-    desc: 'Escucha todas las respuestas entrantes. Detecta confirmación o cancelación, avisa al negocio en tiempo real y actualiza el calendario automáticamente.',
-    steps: ['Webhook activo 24/7', 'Detecta SÍ / NO / 1 / 2 / OK', 'Avisa al negocio vía WhatsApp', 'Responde al paciente al instante', 'Actualiza evento en Calendar con ✅ / ❌'],
-    wa: '✅ Perfecto Laura! Tu cita queda confirmada.\n\nTe esperamos el jueves a las 11:00h. ¡Hasta pronto! 😊',
+    desc: 'Escolta totes les respostes entrants. Detecta confirmació o cancel·lació, avisa el negoci en temps real i actualitza el calendari automàticament.',
+    steps: ['Webhook actiu 24/7', 'Detecta SÍ / NO / 1 / 2 / OK', 'Avisa el negoci via WhatsApp', 'Respon al pacient a l\'instant', 'Actualitza event a Calendar amb ✅ / ❌'],
+    wa: '✅ Perfecte Laura! La teva cita queda confirmada.\n\nT\'esperem el dijous a les 11:00h. Fins aviat! 😊',
   },
   {
     id: 3,
     icon: Star,
     color: '#F59E0B',
-    title: 'Reseña post-visita',
-    trigger: 'Cada día 10:00h',
-    desc: 'Al día siguiente de cada cita, busca pacientes que asistieron y les envía un WhatsApp pidiendo reseña en Google. Sin canceladas. Sin duplicados.',
-    steps: ['Busca citas de ayer en Calendar', 'Excluye canceladas automáticamente', 'Extrae teléfonos de pacientes reales', 'Envía link directo a Google Reviews', '100% automático, cero gestión'],
-    wa: 'Hola Laura! 😊 Esperamos que tu visita de ayer fuera genial.\n\n¿Nos dejarías una reseña rápida en Google? Solo 1 minuto:\n\n👉 maps.google.com/tu-clinica\n\n¡Gracias de corazón! 🙏',
+    title: 'Ressenya post-visita',
+    trigger: 'Cada dia 10:00h',
+    desc: 'L\'endemà de cada cita, busca pacients que han assistit i els envia un WhatsApp demanant ressenya a Google. Sense cancel·lades. Sense duplicats.',
+    steps: ['Busca cites d\'ahir a Calendar', 'Exclou cancel·lades automàticament', 'Extreu telèfons de pacients reals', 'Envia link directe a Google Reviews', '100% automàtic, zero gestió'],
+    wa: 'Hola Laura! 😊 Esperem que la teva visita d\'ahir fos genial.\n\nEns deixaries una ressenya ràpida a Google? Només 1 minut:\n\n👉 maps.google.com/la-teva-clinica\n\n¡Moltes gràcies! 🙏',
   },
   {
     id: 4,
     icon: RefreshCw,
     color: '#8B5CF6',
-    title: 'Reactivación 90 días',
-    trigger: 'Cada lunes 10:00h',
-    desc: 'Cada semana busca pacientes que tuvieron cita hace 90 días y no han vuelto. Filtra duplicados. Envía mensaje de reactivación cálido y personalizado.',
-    steps: ['Lee citas de hace 90 días', 'Cruza con últimos 89 días', 'Filtra quien no ha vuelto', 'Elimina duplicados de teléfono', 'Envía WhatsApp de reactivación'],
-    wa: 'Hola Laura! 👋 Hace tiempo que no nos vemos y quería saber cómo estás.\n\nSi necesitas volver a verte con nosotros, estaremos encantados.\n\n¿Reservamos una cita esta semana? 😊',
+    title: 'Reactivació 90 dies',
+    trigger: 'Cada dilluns 10:00h',
+    desc: 'Cada setmana busca pacients que van tenir cita fa 90 dies i no han tornat. Filtra duplicats. Envia missatge de reactivació càlid i personalitzat.',
+    steps: ['Llegeix cites de fa 90 dies', 'Creua amb els últims 89 dies', 'Filtra qui no ha tornat', 'Elimina duplicats de telèfon', 'Envia WhatsApp de reactivació'],
+    wa: 'Hola Laura! 👋 Fa temps que no ens veiem i volia saber com estàs.\n\nSi necessites tornar a veure\'t amb nosaltres, estarem encantats.\n\n¿Reservem una cita aquesta setmana? 😊',
   },
   {
     id: 5,
     icon: Bell,
     color: '#EF4444',
     title: 'Safety Net 9h',
-    trigger: 'Cada día 9:00h',
-    desc: 'Revisa las citas de mañana sin confirmar. Envía al negocio una lista de pacientes pendientes para que pueda llamarles manualmente si lo considera oportuno.',
-    steps: ['Busca citas de mañana', 'Detecta sin ✅ en el título', 'Lista nombre, hora y teléfono', 'Envía alerta al negocio', 'Red de seguridad humana activada'],
-    wa: '⚠️ *CITAS SIN CONFIRMAR MAÑANA*\n\n• Laura Martín - 11:00h - +34612345678\n• Carlos Vega - 12:30h - +34698765432\n\n💡 Puedes llamarles manualmente.',
+    trigger: 'Cada dia 9:00h',
+    desc: 'Revisa les cites de demà sense confirmar. Envia al negoci una llista de pacients pendents perquè pugui trucar-los manualment si ho considera oportú.',
+    steps: ['Busca cites de demà', 'Detecta sense ✅ al títol', 'Llista nom, hora i telèfon', 'Envia alerta al negoci', 'Xarxa de seguretat humana activada'],
+    wa: '⚠️ *CITES SENSE CONFIRMAR DEMÀ*\n\n• Laura Martín - 11:00h - +34612345678\n• Carlos Vega - 12:30h - +34698765432\n\n💡 Pots trucar-los manualment.',
   },
   {
     id: 6,
     icon: BarChart2,
     color: '#06B6D4',
-    title: 'Resumen diario',
-    trigger: 'Cada día 8:00h',
-    desc: 'Cada mañana, el negocio recibe un briefing completo de la agenda del día: confirmadas, pendientes y canceladas. El equipo empieza el día 100% informado.',
-    steps: ['Carga todas las citas del día', 'Detecta estado de cada una', 'Cuenta confirmadas/pendientes/canceladas', 'Genera briefing estructurado', 'Envía al negocio a las 8h en punto'],
-    wa: '📋 *AGENDA DE HOY*\n\n10:00h · Laura Martín · ✅ Confirmada\n11:30h · Carlos Vega · 🟡 Pendiente\n13:00h · Ana López · ✅ Confirmada\n\n─────\nTotal: 3 · ✅ 2 · 🟡 1',
+    title: 'Resum diari',
+    trigger: 'Cada dia 8:00h',
+    desc: 'Cada matí, el negoci rep un briefing complet de l\'agenda del dia: confirmades, pendents i cancel·lades. L\'equip comença el dia 100% informat.',
+    steps: ['Carrega totes les cites del dia', 'Detecta l\'estat de cada una', 'Compta confirmades/pendents/cancel·lades', 'Genera briefing estructurat', 'Envia al negoci a les 8h en punt'],
+    wa: '📋 *AGENDA D\'AVUI*\n\n10:00h · Laura Martín · ✅ Confirmada\n11:30h · Carlos Vega · 🟡 Pendent\n13:00h · Ana López · ✅ Confirmada\n\n─────\nTotal: 3 · ✅ 2 · 🟡 1',
   },
   {
     id: 7,
     icon: Target,
     color: '#F97316',
-    title: 'Huecos last-minute',
-    trigger: 'Cada día 20:00h',
-    desc: 'Detecta cancelaciones del día siguiente a las 8 de la tarde. Avisa al negocio para que pueda ofrecer ese hueco a pacientes en lista de espera. Cada hueco recuperado = facturación.',
-    steps: ['Detecta cancelaciones de mañana', 'Extrae hora del hueco liberado', 'Avisa al negocio a las 20h', 'Opción de ofrecer a lista de espera', 'Recuperación directa de facturación'],
-    wa: '🎯 *HUECO DISPONIBLE MAÑANA*\n\nSe ha liberado una cita a las *12:30h*.\n\n¿Tienes algún paciente en lista de espera? ¡Es el momento!',
+    title: 'Buits last-minute',
+    trigger: 'Cada dia 20:00h',
+    desc: 'Detecta cancel·lacions del dia següent a les 8 del vespre. Avisa el negoci perquè pugui oferir aquell buit a pacients en llista d\'espera. Cada buit recuperat = facturació.',
+    steps: ['Detecta cancel·lacions de demà', 'Extreu hora del buit alliberat', 'Avisa el negoci a les 20h', 'Opció d\'oferir a llista d\'espera', 'Recuperació directa de facturació'],
+    wa: '🎯 *BUIT DISPONIBLE DEMÀ*\n\nS\'ha alliberat una cita a les *12:30h*.\n\nTens algun pacient en llista d\'espera? És el moment!',
   },
 ]
 
@@ -95,7 +95,7 @@ export default function Sistema() {
               className="pill mb-6 inline-flex"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#B8FF2E] animate-pulse" />
-              7 Flujos automatizados
+              7 Fluxos automatitzats
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
@@ -104,7 +104,7 @@ export default function Sistema() {
               className="text-[clamp(2.5rem,6vw,6rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase"
             >
               <span className="text-white">El sistema</span><br />
-              <span className="text-[#B8FF2E] acid-glow">que trabaja.</span>
+              <span className="text-[#B8FF2E] acid-glow">que treballa.</span>
             </motion.h2>
           </div>
           <motion.p
@@ -113,8 +113,8 @@ export default function Sistema() {
             transition={{ delay: 0.3 }}
             className="text-white/40 font-medium max-w-sm text-sm leading-relaxed"
           >
-          El sistema funciona mientras pasas consulta. Nadie lo arranca, nadie lo para,
-          nadie tiene que acordarse de nada.         
+          El sistema funciona mentre passes consulta. Ningú l'arrenca, ningú l'atura,
+          ningú s'ha de recordar de res.         
           </motion.p>
         </div>
 
@@ -192,7 +192,7 @@ export default function Sistema() {
 
               {/* Steps */}
               <div>
-                <div className="text-[9px] font-bold uppercase tracking-widest text-white/20 mb-4">Secuencia de ejecución</div>
+                <div className="text-[9px] font-bold uppercase tracking-widest text-white/20 mb-4">Seqüència d'execució</div>
                 <div className="flex flex-col gap-2">
                   {flow.steps.map((step, i) => (
                     <div key={i} className="flex items-center gap-3">
@@ -210,7 +210,7 @@ export default function Sistema() {
 
               {/* WhatsApp mockup */}
               <div>
-                <div className="text-[9px] font-bold uppercase tracking-widest text-white/20 mb-3">Mensaje generado</div>
+                <div className="text-[9px] font-bold uppercase tracking-widest text-white/20 mb-3">Missatge generat</div>
                 <div className="bg-[#0B0B12] border border-white/6 rounded p-5">
                   <div className="flex items-center gap-2 mb-3 pb-3 border-b border-white/5">
                     <div className="w-6 h-6 rounded-full bg-[#25D366] flex items-center justify-center">

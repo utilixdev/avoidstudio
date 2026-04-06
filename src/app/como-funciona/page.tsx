@@ -30,96 +30,96 @@ const flows = [
     id: 1,
     icon: Bell,
     color: '#B8FF2E',
-    title: 'Recordatorio 48h',
-    trigger: 'Cada día · 9:00h',
+    title: 'Recordatori 48h',
+    trigger: 'Cada dia · 9:00h',
     badge: 'Anti no-show principal',
-    tagline: 'El mensaje que llega justo cuando el paciente todavía puede reorganizarse.',
-    desc: 'Dos días antes de cada cita, el sistema comprueba tu Google Calendar, extrae el nombre y teléfono del paciente y envía un WhatsApp personalizado. Si es la primera visita, el tono es de bienvenida. Si es una revisión, es un recordatorio directo. El paciente solo tiene que responder una palabra.',
-    why: 'La mayoría de no-shows ocurren porque el paciente se olvidó, no porque no quisiera venir. Un recordatorio a 48h da tiempo de reorganizarse y reduce las ausencias entre un 70% y un 87%.',
+    tagline: 'El missatge que arriba just quan el pacient encara pot reorganitzar-se.',
+    desc: 'Dos dies abans de cada cita, el sistema comprova el teu Google Calendar, extreu el nom i telèfon del pacient i envia un WhatsApp personalitzat. Si és la primera visita, el to és de benvinguda. Si és una revisió, és un recordatori directe. El pacient només ha de respondre una paraula.',
+    why: 'La majoria de no-shows passen perquè el pacient s\'ha oblidat, no perquè no volgués venir. Un recordatori a 48h dona temps per reorganitzar-se i redueix les absències entre un 70% i un 87%.',
     steps: [
-      { n: '1', t: 'Comprueba el calendario', d: 'Busca todas las citas del día +48h.' },
-      { n: '2', t: 'Detecta el tipo de visita', d: 'Primera vez o revisión — mensaje distinto.' },
-      { n: '3', t: 'Extrae datos del paciente', d: 'Nombre y teléfono del título del evento.' },
-      { n: '4', t: 'Genera el mensaje', d: 'Personalizado, natural, en tono humano.' },
-      { n: '5', t: 'Envía por WhatsApp', d: 'Vía Twilio. Entregado en menos de 1 segundo.' },
+      { n: '1', t: 'Comprova el calendari', d: 'Busca totes les cites del dia +48h.' },
+      { n: '2', t: 'Detecta el tipus de visita', d: 'Primera vegada o revisió — missatge diferent.' },
+      { n: '3', t: 'Extreu dades del pacient', d: 'Nom i telèfon del títol de l\'event.' },
+      { n: '4', t: 'Genera el missatge', d: 'Personalitzat, natural, en to humà.' },
+      { n: '5', t: 'Envia per WhatsApp', d: 'Via Twilio. Entregat en menys d\'1 segon.' },
     ],
-    wa: 'Hola Laura! 👋 Te confirmamos tu sesión de *FISIO* el *jueves 20* a las *11:00h*.\n\nPor favor responde:\n✅ *SÍ* para confirmar\n❌ *NO* si necesitas cancelar\n\n_AVOID · Sistema automático_',
+    wa: 'Hola Laura! 👋 Et confirmem la teva sessió de *FISIO* el *dijous 20* a les *11:00h*.\n\nSi us plau respon:\n✅ *SÍ* per confirmar\n❌ *NO* si necessites cancel·lar\n\n_AVOID · Sistema automàtic_',
     impact: [
       { val: '−87%', label: 'No-shows' },
-      { val: '48h', label: 'Antelación' },
-      { val: '100%', label: 'Automático' },
+      { val: '48h', label: 'Antelació' },
+      { val: '100%', label: 'Automàtic' },
     ],
   },
   {
     id: 2,
     icon: MessageSquare,
     color: '#22C55E',
-    title: 'Gestión de respuestas',
+    title: 'Gestió de respostes',
     trigger: 'Webhook · 24/7',
-    badge: 'Respuesta inmediata',
-    tagline: 'El bot entiende lo que dice el paciente. A las 11 de la noche. Un domingo.',
-    desc: 'Cuando el paciente responde al WhatsApp, el sistema lo procesa al instante. No importa si escribe "sí", "1", "confirmo", "ok" o incluso "claro que sí". También detecta cancelaciones en cualquier formato. En décimas de segundo: avisa al negocio, responde al paciente y actualiza el calendario.',
-    why: 'Un sistema que solo envía mensajes pero no gestiona las respuestas es incompleto. La magia ocurre en el ciclo completo: mensaje → respuesta → acción → calendario actualizado. Sin intervención humana en ningún momento.',
+    badge: 'Resposta immediata',
+    tagline: 'El bot entén el que diu el pacient. A les 11 de la nit. Un diumenge.',
+    desc: 'Quan el pacient respon al WhatsApp, el sistema ho processa a l\'instant. No importa si escriu "sí", "1", "confirmo", "ok" o fins i tot "clar que sí". També detecta cancel·lacions en qualsevol format. En dècimes de segon: avisa el negoci, respon al pacient i actualitza el calendari.',
+    why: 'Un sistema que només envia missatges però no gestiona les respostes és incomplet. La màgia passa en el cicle complet: missatge → resposta → acció → calendari actualitzat. Sense intervenció humana en cap moment.',
     steps: [
-      { n: '1', t: 'Escucha 24/7', d: 'Webhook activo siempre, sin horarios.' },
-      { n: '2', t: 'Detecta la intención', d: 'SÍ, 1, OK, CONFIRMO / NO, 2, CANCELO, ANULO...' },
-      { n: '3', t: 'Avisa al negocio', d: 'WhatsApp inmediato al número del centro.' },
-      { n: '4', t: 'Responde al paciente', d: 'Confirmación o alternativa según el caso.' },
-      { n: '5', t: 'Actualiza el calendario', d: '✅ confirmada · ❌ cancelada · visible al instante.' },
+      { n: '1', t: 'Escolta 24/7', d: 'Webhook actiu sempre, sense horaris.' },
+      { n: '2', t: 'Detecta la intenció', d: 'SÍ, 1, OK, CONFIRMO / NO, 2, CANCEL·LO, ANUL·LO...' },
+      { n: '3', t: 'Avisa el negoci', d: 'WhatsApp immediat al número del centre.' },
+      { n: '4', t: 'Respon al pacient', d: 'Confirmació o alternativa segons el cas.' },
+      { n: '5', t: 'Actualitza el calendari', d: '✅ confirmada · ❌ cancel·lada · visible a l\'instant.' },
     ],
-    wa: '✅ *Perfecto Laura!* Tu cita queda confirmada.\n\nTe esperamos el *jueves 20 a las 11:00h*.\n\n¡Hasta pronto! 😊\n\n_AVOID · Sistema automático_',
+    wa: '✅ *Perfecte Laura!* La teva cita queda confirmada.\n\nT\'esperem el *dijous 20 a les 11:00h*.\n\nFins aviat! 😊\n\n_AVOID · Sistema automàtic_',
     impact: [
-      { val: '<2s', label: 'Tiempo de reacción' },
-      { val: '+20', label: 'Palabras detectadas' },
-      { val: '24/7', label: 'Sin horarios' },
+      { val: '<2s', label: 'Temps de reacció' },
+      { val: '+20', label: 'Paraules detectades' },
+      { val: '24/7', label: 'Sense horaris' },
     ],
   },
   {
     id: 3,
     icon: Star,
     color: '#F59E0B',
-    title: 'Reseña post-visita',
-    trigger: 'Cada día · 10:00h',
-    badge: 'SEO local automático',
-    tagline: 'El momento exacto en que el paciente todavía recuerda cómo fue la visita.',
-    desc: 'Cada mañana, el sistema busca todas las citas que se realizaron ayer. Excluye las canceladas. Comprueba que el paciente tenga teléfono. Y envía un WhatsApp con el enlace directo a la ficha de Google de tu clínica — sin intermediarios, sin formularios. El paciente llega directamente a dejar su valoración en un clic.',
-    why: 'Pedir la reseña 24 horas después de la visita, cuando la experiencia todavía está fresca, multiplica la tasa de conversión por 4 respecto a pedirla en consulta o por email semanas después. Sin este sistema, la mayoría de pacientes satisfechos nunca dejan reseña porque nadie se lo pide en el momento correcto.',
+    title: 'Ressenya post-visita',
+    trigger: 'Cada dia · 10:00h',
+    badge: 'SEO local automàtic',
+    tagline: 'El moment exacte en que el pacient encara recorda com va anar la visita.',
+    desc: 'Cada matí, el sistema busca totes les cites que es van realitzar ahir. Exclou les cancel·lades. Comprova que el pacient tingui telèfon. I envia un WhatsApp amb l\'enllaç directe a la fitxa de Google de la teva clínica — sense intermediaris, sense formularis. El pacient arriba directament a deixar la seva valoració en un clic.',
+    why: 'Demanar la ressenya 24 hores després de la visita, quan l\'experiència encara és fresca, multiplica la taxa de conversió per 4 respecte a demanar-la a consulta o per email setmanes després. Sense aquest sistema, la majoria de pacients satisfets mai no deixen ressenya perquè ningú els ho demana en el moment correcte.',
     steps: [
-      { n: '1', t: 'Busca citas de ayer', d: 'En Google Calendar, ordenadas por hora.' },
-      { n: '2', t: 'Excluye canceladas', d: 'Solo pacientes que asistieron realmente.' },
-      { n: '3', t: 'Valida el teléfono', d: 'Sin número, sin envío. Cero errores.' },
-      { n: '4', t: 'Envía el WhatsApp', d: 'Con link directo a tu ficha de Google Maps.' },
-      { n: '5', t: 'Sin duplicados', d: 'Si ya recibió una reseña esta semana, se omite.' },
+      { n: '1', t: 'Busca cites d\'ahir', d: 'A Google Calendar, ordenades per hora.' },
+      { n: '2', t: 'Exclou cancel·lades', d: 'Només pacients que han assistit realment.' },
+      { n: '3', t: 'Valida el telèfon', d: 'Sense número, sense enviament. Zero errors.' },
+      { n: '4', t: 'Envia el WhatsApp', d: 'Amb link directe a la teva fitxa de Google Maps.' },
+      { n: '5', t: 'Sense duplicats', d: 'Si ja ha rebut una ressenya aquesta setmana, s\'omet.' },
     ],
-    wa: 'Hola Laura! 😊 Esperamos que tu visita de ayer fuera genial.\n\n¿Nos dejarías una reseña rápida en Google? Solo 1 minuto ⏱️\n\n👉 maps.google.com/tu-clinica\n\n¡Gracias de corazón! 🙏\n_AVOID · Sistema automático_',
+    wa: 'Hola Laura! 😊 Esperem que la teva visita d\'ahir fos genial.\n\nEns deixaries una ressenya ràpida a Google? Només 1 minut ⏱️\n\n👉 maps.google.com/la-teva-clinica\n\nMoltes gràcies! 🙏\n_AVOID · Sistema automàtic_',
     impact: [
-      { val: '3–5', label: 'Reseñas / semana' },
-      { val: '×4', label: 'Más conversión' },
-      { val: '+24h', label: 'Timing perfecto' },
+      { val: '3–5', label: 'Ressenyes / setmana' },
+      { val: '×4', label: 'Més conversió' },
+      { val: '+24h', label: 'Timing perfecte' },
     ],
   },
   {
     id: 4,
     icon: RefreshCw,
     color: '#8B5CF6',
-    title: 'Reactivación 90 días',
-    trigger: 'Cada lunes · 10:00h',
-    badge: 'Facturación recurrente',
-    tagline: 'Pacientes que se fueron. Que vuelven solos. Sin que nadie les llame.',
-    desc: 'Cada lunes, el sistema analiza el calendario de hace exactamente 90 días. Identifica qué pacientes tuvieron una cita entonces pero no han vuelto en los meses siguientes. Filtra duplicados para no enviar dos mensajes al mismo teléfono. Y envía un mensaje cálido, sin presión, invitando a volver cuando lo necesiten.',
-    why: 'El 40% de los pacientes que no vuelven no es porque no quieran — es porque nadie les ha contactado. Un mensaje de reactivación enviado en el momento correcto (90 días) convierte entre el 18% y el 26% de esos pacientes dormidos en citas nuevas. Es facturación que ya tenías ganada y que se estaba perdiendo por falta de seguimiento.',
+    title: 'Reactivació 90 dies',
+    trigger: 'Cada dilluns · 10:00h',
+    badge: 'Facturació recurrent',
+    tagline: 'Pacients que se n\'han anat. Que tornen sols. Sense que ningú els truqui.',
+    desc: 'Cada dilluns, el sistema analitza el calendari de fa exactament 90 dies. Identifica quins pacients van tenir una cita llavors però no han tornat en els mesos següents. Filtra duplicats per no enviar dos missatges al mateix telèfon. I envia un missatge càlid, sense pressió, invitant a tornar quan ho necessitin.',
+    why: 'El 40% dels pacients que no tornen no és perquè no vulguin — és perquè ningú els ha contactat. Un missatge de reactivació enviat en el moment correcte (90 dies) converteix entre el 18% i el 26% d\'aquests pacients adormits en cites noves. És facturació que ja tenies guanyada i que s\'estava perdent per falta de seguiment.',
     steps: [
-      { n: '1', t: 'Lee citas de hace 90 días', d: 'Rango de ±3 días para mayor cobertura.' },
-      { n: '2', t: 'Cruza con historial reciente', d: 'Descarta quienes ya han vuelto.' },
-      { n: '3', t: 'Filtra duplicados', d: 'Un mensaje por teléfono, sin excepciones.' },
-      { n: '4', t: 'Genera el mensaje', d: 'Cálido, sin presión, con nombre propio.' },
-      { n: '5', t: 'Envía el lunes a las 10h', d: 'Momento de mayor tasa de apertura.' },
+      { n: '1', t: 'Llegeix cites de fa 90 dies', d: 'Rang de ±3 dies per a més cobertura.' },
+      { n: '2', t: 'Creua amb historial recent', d: 'Descarta qui ja ha tornat.' },
+      { n: '3', t: 'Filtra duplicats', d: 'Un missatge per telèfon, sense excepcions.' },
+      { n: '4', t: 'Genera el missatge', d: 'Càlid, sense pressió, amb nom propi.' },
+      { n: '5', t: 'Envia el dilluns a les 10h', d: 'Moment de major taxa d\'obertura.' },
     ],
-    wa: 'Hola Laura! 👋 Hace tiempo que no nos vemos y quería saber cómo estás.\n\nSi en algún momento necesitas volver a verte con nosotros, estaremos encantados de atenderte.\n\n¿Reservamos esta semana? 😊\n_AVOID · Sistema automático_',
+    wa: 'Hola Laura! 👋 Fa temps que no ens veiem i volia saber com estàs.\n\nSi en algun moment necessites tornar a veure\'t amb nosaltres, estarem encantats d\'atendre\'t.\n\n¿Reservem aquesta setmana? 😊\n_AVOID · Sistema automàtic_',
     impact: [
-      { val: '18–26%', label: 'Conversión' },
-      { val: '40%', label: 'Pacientes dormidos' },
-      { val: 'Lunes 10h', label: 'Timing óptimo' },
+      { val: '18–26%', label: 'Conversió' },
+      { val: '40%', label: 'Pacients adormits' },
+      { val: 'Dilluns 10h', label: 'Timing òptim' },
     ],
   },
   {
@@ -127,71 +127,71 @@ const flows = [
     icon: Shield,
     color: '#EF4444',
     title: 'Safety Net 9h',
-    trigger: 'Cada día · 9:00h',
-    badge: 'Red de seguridad humana',
-    tagline: 'La lista de pacientes que aún no han confirmado. En tu móvil cada mañana.',
-    desc: 'A las 9 de la mañana del día anterior, el sistema revisa todas las citas de mañana. Identifica cuáles no tienen el ✅ de confirmación en el título del calendario. Y envía al negocio una lista clara con nombre, hora y teléfono de cada paciente pendiente. El equipo puede llamarles si lo considera necesario.',
-    why: 'El sistema automatiza el 90% del trabajo, pero hay pacientes que simplemente no responden a WhatsApp. Este flujo garantiza que el negocio siempre tenga una visión completa de lo que puede pasar mañana, con tiempo suficiente para actuar si quiere. Es la red de seguridad que protege contra lo imprevisto.',
+    trigger: 'Cada dia · 9:00h',
+    badge: 'Xarxa de seguretat humana',
+    tagline: 'La llista de pacients que encara no han confirmat. Al teu mòbil cada matí.',
+    desc: 'A les 9 del matí del dia anterior, el sistema revisa totes les cites de demà. Identifica quines no tenen el ✅ de confirmació al títol del calendari. I envia al negoci una llista clara amb nom, hora i telèfon de cada pacient pendent. L\'equip els pot trucar si ho considera necessari.',
+    why: 'El sistema automatitza el 90% de la feina, però hi ha pacients que simplement no responen al WhatsApp. Aquest flux garanteix que el negoci sempre tingui una visió completa del que pot passar demà, amb temps suficient per actuar si vol. És la xarxa de seguretat que protegeix contra l\'imprevist.',
     steps: [
-      { n: '1', t: 'Busca citas de mañana', d: 'Todas las del día siguiente.' },
-      { n: '2', t: 'Filtra las confirmadas', d: 'Las que ya tienen ✅ en el título.' },
-      { n: '3', t: 'Extrae las pendientes', d: 'Nombre, hora y teléfono de cada una.' },
-      { n: '4', t: 'Genera el listado', d: 'Claro, ordenado por hora.' },
-      { n: '5', t: 'Envía al negocio', d: 'A las 9h en punto. Siempre.' },
+      { n: '1', t: 'Busca cites de demà', d: 'Totes les del dia següent.' },
+      { n: '2', t: 'Filtra les confirmades', d: 'Les que ja tenen ✅ al títol.' },
+      { n: '3', t: 'Extreu les pendents', d: 'Nom, hora i telèfon de cada una.' },
+      { n: '4', t: 'Genera el llistat', d: 'Clar, ordenat per hora.' },
+      { n: '5', t: 'Envia al negoci', d: 'A les 9h en punt. Sempre.' },
     ],
-    wa: '⚠️ *CITAS SIN CONFIRMAR MAÑANA*\n\n• Laura Martín · 11:00h · +34612345678\n• Carlos Vega · 12:30h · +34698765432\n• Ana López · 16:00h · +34691234567\n\nTotal pendientes: 3\n💡 Puedes llamarles si lo consideras.\n_AVOID · Sistema automático_',
+    wa: '⚠️ *CITES SENSE CONFIRMAR DEMÀ*\n\n• Laura Martín · 11:00h · +34612345678\n• Carlos Vega · 12:30h · +34698765432\n• Ana López · 16:00h · +34691234567\n\nTotal pendents: 3\n💡 Pots trucar-los si ho consideres.\n_AVOID · Sistema automàtic_',
     impact: [
-      { val: '9:00h', label: 'Alerta diaria' },
-      { val: '0', label: 'Citas perdidas por descuido' },
-      { val: '100%', label: 'Visibilidad' },
+      { val: '9:00h', label: 'Alerta diària' },
+      { val: '0', label: 'Cites perdudes per descuit' },
+      { val: '100%', label: 'Visibilitat' },
     ],
   },
   {
     id: 6,
     icon: BarChart2,
     color: '#06B6D4',
-    title: 'Resumen diario',
-    trigger: 'Cada día · 8:00h',
-    badge: 'Briefing matutino',
-    tagline: 'Tu equipo empieza el día sabiendo exactamente qué tiene por delante.',
-    desc: 'Cada mañana a las 8h, antes de que abra la clínica, el negocio recibe un WhatsApp con el resumen completo del día: nombre de cada paciente, hora, y estado de confirmación. Confirmadas en verde, pendientes en amarillo, canceladas indicadas. Sin abrir el ordenador, sin entrar al calendario. La información relevante directamente en el móvil.',
-    why: 'Empezar el día con claridad sobre la agenda elimina la fricción de los primeros 20 minutos de trabajo donde el equipo comprueba quién viene y quién no. También permite anticipar huecos y gestionar mejor los tiempos. Es un pequeño detalle que cambia la dinámica del equipo.',
+    title: 'Resum diari',
+    trigger: 'Cada dia · 8:00h',
+    badge: 'Briefing matutí',
+    tagline: 'El teu equip comença el dia sabent exactament què té per davant.',
+    desc: 'Cada matí a les 8h, abans que obri la clínica, el negoci rep un WhatsApp amb el resum complet del dia: nom de cada pacient, hora, i estat de confirmació. Confirmades en verd, pendents en groc, cancel·lades indicades. Sense obrir l\'ordinador, sense entrar al calendari. La informació rellevant directament al mòbil.',
+    why: 'Començar el dia amb claredat sobre l\'agenda elimina la fricció dels primers 20 minuts de feina on l\'equip comprova qui ve i qui no. També permet anticipar buits i gestionar millor els temps. És un petit detall que canvia la dinàmica de l\'equip.',
     steps: [
-      { n: '1', t: 'Carga las citas del día', d: 'Todas, en orden cronológico.' },
-      { n: '2', t: 'Detecta el estado de cada una', d: '✅ confirmada · 🟡 pendiente · ❌ cancelada.' },
-      { n: '3', t: 'Cuenta y agrupa', d: 'Total, confirmadas, pendientes, canceladas.' },
-      { n: '4', t: 'Genera el briefing', d: 'Limpio, legible en móvil de un vistazo.' },
-      { n: '5', t: 'Envía a las 8h en punto', d: 'Antes de que empiece la jornada.' },
+      { n: '1', t: 'Carrega les cites del dia', d: 'Totes, en ordre cronològic.' },
+      { n: '2', t: 'Detecta l\'estat de cada una', d: '✅ confirmada · 🟡 pendent · ❌ cancel·lada.' },
+      { n: '3', t: 'Compta i agrupa', d: 'Total, confirmades, pendents, cancel·lades.' },
+      { n: '4', t: 'Genera el briefing', d: 'Net, llegible al mòbil d\'un cop d\'ull.' },
+      { n: '5', t: 'Envia a les 8h en punt', d: 'Abans que comenci la jornada.' },
     ],
-    wa: '📋 *AGENDA DE HOY · Jueves 20*\n\n10:00h · Laura Martín · ✅\n11:30h · Carlos Vega · 🟡 Sin confirmar\n13:00h · Ana López · ✅\n16:00h · Pedro Ruiz · ❌ Cancelada\n\n──────────────\nTotal: 4 · ✅ 2 · 🟡 1 · ❌ 1\n\n_AVOID · Briefing automático_',
+    wa: '📋 *AGENDA D\'AVUI · Dijous 20*\n\n10:00h · Laura Martín · ✅\n11:30h · Carlos Vega · 🟡 Sense confirmar\n13:00h · Ana López · ✅\n16:00h · Pedro Ruiz · ❌ Cancel·lada\n\n──────────────\nTotal: 4 · ✅ 2 · 🟡 1 · ❌ 1\n\n_AVOID · Briefing automàtic_',
     impact: [
-      { val: '8:00h', label: 'Antes de abrir' },
-      { val: '0min', label: 'Preparación manual' },
-      { val: '100%', label: 'Visibilidad diaria' },
+      { val: '8:00h', label: 'Abans d\'obrir' },
+      { val: '0min', label: 'Preparació manual' },
+      { val: '100%', label: 'Visibilitat diària' },
     ],
   },
   {
     id: 7,
     icon: Target,
     color: '#F97316',
-    title: 'Huecos last-minute',
-    trigger: 'Cada día · 20:00h',
-    badge: 'Facturación recuperada',
-    tagline: 'Cada cancelación es un hueco. Cada hueco avisado a tiempo es una oportunidad.',
-    desc: 'Cada día a las 8 de la tarde, el sistema detecta si hay cancelaciones para el día siguiente. Si las hay, envía una alerta al negocio con la hora exacta del hueco liberado. El equipo puede ofrecer esa plaza a un paciente en lista de espera o a alguien que había pedido cita urgente. Sin este sistema, ese hueco simplemente queda vacío.',
-    why: 'Una cancelación a las 7 de la tarde para el día siguiente es casi imposible de cubrir de forma manual — el equipo ya no está trabajando. Este flujo automático permite actuar en el momento en que todavía hay tiempo para reaccionar, antes de que sea demasiado tarde. Cada hueco recuperado es entre 40€ y 100€ directamente a la caja.',
+    title: 'Buits last-minute',
+    trigger: 'Cada dia · 20:00h',
+    badge: 'Facturació recuperada',
+    tagline: 'Cada cancel·lació és un buit. Cada buit avisat a temps és una oportunitat.',
+    desc: 'Cada dia a les 8 del vespre, el sistema detecta si hi ha cancel·lacions per al dia següent. Si n\'hi ha, envia una alerta al negoci amb l\'hora exacta del buit alliberat. L\'equip pot oferir aquella plaça a un pacient en llista d\'espera o a algú que havia demanat cita urgent. Sense aquest sistema, aquell buit simplement queda buit.',
+    why: 'Una cancel·lació a les 7 del vespre per al dia següent és gairebé impossible de cobrir de forma manual — l\'equip ja no treballa. Aquest flux automàtic permet actuar en el moment en què encara hi ha temps per reaccionar, abans que sigui massa tard. Cada buit recuperat és entre 40€ i 100€ directament a caixa.',
     steps: [
-      { n: '1', t: 'Detecta cancelaciones de mañana', d: 'Títulos con ❌ en el calendario.' },
-      { n: '2', t: 'Extrae la hora del hueco', d: 'El slot exacto que queda libre.' },
-      { n: '3', t: 'Comprueba si hay más de una', d: 'Agrupa si hay varios huecos.' },
-      { n: '4', t: 'Genera la alerta', d: 'Clara, con la hora y el contexto.' },
-      { n: '5', t: 'Envía a las 20h', d: 'Tiempo suficiente para reaccionar.' },
+      { n: '1', t: 'Detecta cancel·lacions de demà', d: 'Títols amb ❌ al calendari.' },
+      { n: '2', t: 'Extreu l\'hora del buit', d: 'El slot exacte que queda lliure.' },
+      { n: '3', t: 'Comprova si n\'hi ha més d\'un', d: 'Agrupa si hi ha diversos buits.' },
+      { n: '4', t: 'Genera l\'alerta', d: 'Clara, amb l\'hora i el context.' },
+      { n: '5', t: 'Envia a les 20h', d: 'Temps suficient per reaccionar.' },
     ],
-    wa: '🎯 *HUECO DISPONIBLE MAÑANA*\n\nSe ha liberado una cita a las *12:30h*.\n\n¿Tienes algún paciente en lista de espera o que necesite cita urgente?\n\n¡Es el momento de recuperar esa hora! 💪\n_AVOID · Alerta automática_',
+    wa: '🎯 *BUIT DISPONIBLE DEMÀ*\n\nS\'ha alliberat una cita a les *12:30h*.\n\nTens algun pacient en llista d\'espera o que necessiti cita urgent?\n\nÉs el moment de recuperar aquesta hora! 💪\n_AVOID · Alerta automàtica_',
     impact: [
-      { val: '20:00h', label: 'Alerta diaria' },
-      { val: '40–100€', label: 'Por hueco recuperado' },
-      { val: '0', label: 'Huecos invisibles' },
+      { val: '20:00h', label: 'Alerta diària' },
+      { val: '40–100€', label: 'Per buit recuperat' },
+      { val: '0', label: 'Buits invisibles' },
     ],
   },
 ]
@@ -207,7 +207,7 @@ function WaMockup({ text, color }: { text: string; color: string }) {
         </div>
         <div>
           <div className="mono text-[9px] text-white/50 font-bold leading-none">AVOID · WhatsApp Bot</div>
-          <div className="mono text-[8px] text-[#25D366] leading-none mt-0.5">● En línea</div>
+          <div className="mono text-[8px] text-[#25D366] leading-none mt-0.5">● En línia</div>
         </div>
         <div className="ml-auto flex gap-1">
           <div className="w-1 h-1 rounded-full bg-white/10" />
@@ -232,15 +232,11 @@ function WaMockup({ text, color }: { text: string; color: string }) {
 }
 
 // ── STACKING CARD ─────────────────────────────────────────────────
-// Each card sticks to the top as you scroll, and the next one slides over it.
-// offset controls how much of the previous card peeks above the new one.
 function StackCard({ flow, index, total }: { flow: typeof flows[0]; index: number; total: number }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-120px' })
 
-  // Cards are progressively sticky: top offset increases per card so
-  // earlier cards peek out from behind later ones.
-  const topOffset = 80 + index * 8 // px — tiny peek increases with each card
+  const topOffset = 80 + index * 8
 
   return (
     <motion.div
@@ -248,7 +244,6 @@ function StackCard({ flow, index, total }: { flow: typeof flows[0]; index: numbe
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-      // sticky: card stays in viewport as next card slides in on top of it
       className="sticky"
       style={{ top: topOffset }}
     >
@@ -256,7 +251,6 @@ function StackCard({ flow, index, total }: { flow: typeof flows[0]; index: numbe
         className="border bg-[#06060F] overflow-hidden"
         style={{
           borderColor: `${flow.color}20`,
-          // slight scale-down for cards further back, creating depth
           transform: `scale(${1 - (total - 1 - index) * 0.012})`,
           transformOrigin: 'top center',
         }}
@@ -297,14 +291,14 @@ function StackCard({ flow, index, total }: { flow: typeof flows[0]; index: numbe
             <div className="p-4 border text-xs font-medium leading-relaxed text-white/30"
               style={{ borderColor: `${flow.color}15`, background: `${flow.color}05` }}>
               <div className="text-[9px] font-black uppercase tracking-widest mb-2" style={{ color: `${flow.color}60` }}>
-                Por qué funciona
+                Per què funciona
               </div>
               {flow.why}
             </div>
             {/* Steps */}
             <div className="flex flex-col gap-2">
               <div className="text-[9px] font-black uppercase tracking-widest text-white/20 mb-1">
-                Secuencia
+                Seqüència
               </div>
               {flow.steps.map((s, i) => (
                 <div key={i} className="flex items-start gap-3">
@@ -327,7 +321,7 @@ function StackCard({ flow, index, total }: { flow: typeof flows[0]; index: numbe
           <div className="p-6 md:p-8 flex flex-col gap-5">
             <div>
               <div className="text-[9px] font-black uppercase tracking-widest text-white/20 mb-3">
-                Mensaje real generado
+                Missatge real generat
               </div>
               <WaMockup text={flow.wa} color={flow.color} />
             </div>
@@ -397,27 +391,27 @@ export default function SistemaPage() {
             <FadeUp>
               <div className="pill mb-8 inline-flex">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#B8FF2E] animate-pulse" />
-                7 flujos · Activos 24/7 · Sin intervención
+                7 fluxos · Actius 24/7 · Sense intervenció
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
               <h1 className="text-[clamp(3rem,9vw,9rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-6">
                 <span className="text-white/15">El sistema</span><br />
-                <span className="text-[#B8FF2E] acid-glow">que trabaja.</span>
+                <span className="text-[#B8FF2E] acid-glow">que treballa.</span>
               </h1>
             </FadeUp>
             <FadeUp delay={0.2}>
               <p className="text-white/35 text-base md:text-xl font-medium max-w-2xl leading-relaxed mb-10">
-                Siete flujos automatizados que se ejecutan solos, en el momento exacto,
-                con el mensaje exacto. Tú pasas consulta. El sistema llena la silla.
+                Set fluxos automatitzats que s'executen sols, en el moment exacte,
+                amb el missatge exacte. Tu passes consulta. El sistema omple la cadira.
               </p>
             </FadeUp>
             <FadeUp delay={0.3}>
               <div className="flex flex-wrap gap-6">
                 {[
-                  { icon: Clock, label: 'Sin horarios de atención' },
-                  { icon: Zap, label: 'Respuesta en segundos' },
-                  { icon: Shield, label: 'Cero fallos por olvido' },
+                  { icon: Clock, label: 'Sense horaris d\'atenció' },
+                  { icon: Zap, label: 'Resposta en segons' },
+                  { icon: Shield, label: 'Zero fallades per oblit' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-2">
                     <item.icon size={12} className="text-[#B8FF2E] flex-shrink-0" />
@@ -436,10 +430,10 @@ export default function SistemaPage() {
         <section className="px-6 md:px-20 py-12 border-b border-white/5">
           <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { val: '7',    label: 'Flujos activos',   color: '#B8FF2E' },
-              { val: '24/7', label: 'Sin parar nunca',  color: '#22C55E' },
-              { val: '−87%', label: 'Menos no-shows',   color: '#EF4444' },
-              { val: '72h',  label: 'Setup completo',   color: '#8B5CF6' },
+              { val: '7',    label: 'Fluxos actius',     color: '#B8FF2E' },
+              { val: '24/7', label: 'Sense parar mai',   color: '#22C55E' },
+              { val: '−87%', label: 'Menys no-shows',    color: '#EF4444' },
+              { val: '72h',  label: 'Setup complet',     color: '#8B5CF6' },
             ].map((s, i) => (
               <FadeUp key={i} delay={i * 0.07}>
                 <div className="p-5 border text-center"
@@ -458,17 +452,16 @@ export default function SistemaPage() {
         <section id="sistema" className="px-6 md:px-20 py-16 md:py-24">
           <div className="max-w-6xl mx-auto">
             <FadeUp className="mb-14">
-              <div className="pill mb-5 inline-flex">Los 7 flujos</div>
+              <div className="pill mb-5 inline-flex">Els 7 fluxos</div>
               <h2 className="text-[clamp(2rem,5vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase">
-                <span className="text-white/15">Qué hace</span><br />
-                <span className="text-[#B8FF2E] acid-glow">cada uno.</span>
+                <span className="text-white/15">Què fa</span><br />
+                <span className="text-[#B8FF2E] acid-glow">cadascun.</span>
               </h2>
               <p className="text-white/30 text-sm font-medium mt-4 max-w-lg">
-                Haz scroll. Cada tarjeta se apila sobre la anterior mientras lees el siguiente flujo.
+                Fes scroll. Cada targeta s'apila sobre l'anterior mentre llegeixes el flux següent.
               </p>
             </FadeUp>
 
-            {/* Stack container — needs enough height for all cards + viewport */}
             <div className="flex flex-col gap-4">
               {flows.map((f, i) => (
                 <StackCard key={f.id} flow={f} index={i} total={flows.length} />
@@ -483,23 +476,23 @@ export default function SistemaPage() {
             <FadeUp>
               <Zap size={24} className="text-[#B8FF2E] mx-auto mb-8 opacity-60" />
               <h2 className="text-[clamp(2rem,5vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-6">
-                <span className="text-white/15">Todo esto,</span><br />
-                <span className="text-[#B8FF2E] acid-glow">Lo hacemos nosotros.</span>
+                <span className="text-white/15">Tot això,</span><br />
+                <span className="text-[#B8FF2E] acid-glow">ho fem nosaltres.</span>
               </h2>
               <p className="text-white/35 font-medium leading-relaxed max-w-lg mx-auto mb-10 text-sm md:text-base">
-                No tienes que configurar nada. No tienes que entender la tecnología.
-                Solo disfrutar de una agenda que se gestiona sola.
+                No has de configurar res. No has d'entendre la tecnologia.
+                Només gaudir d'una agenda que es gestiona sola.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="/diagnostico" className="btn-acid">
-                  Solicitar diagnóstico gratuito <ArrowRight size={13} />
+                  Sol·licitar diagnòstic gratuït <ArrowRight size={13} />
                 </a>
                 <a href="/perdidas" className="btn-ghost">
-                  Ver cuánto pierdes ahora
+                  Veure quant perds ara
                 </a>
               </div>
               <p className="text-white/15 text-[10px] font-medium mt-8 mono">
-                Sin compromiso · 30 min · Respondemos en menos de 24h
+                Sense compromís · 30 min · Responem en menys de 24h
               </p>
             </FadeUp>
           </div>

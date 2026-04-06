@@ -9,14 +9,14 @@ export async function POST(request: Request) {
     const { nombre, email, tel, rol, clinica, sector, facturacion } = body;
 
 const data = await resend.emails.send({
-  // Usamos el dominio verificado de Utilix como "motor" de envío
+  // Fem servir el domini verificat d'Utilix com a "motor" d'enviament
   from: 'Avoid Studio <info@utilixstudio.com>', 
-  // Enviamos el aviso a tu nueva bandeja de entrada en el iPhone
+  // Enviem l'avís a la teva nova bústia d'entrada
   to: ['info@avoidstudio.es'],
-  subject: `🚀 Nuevo Lead: ${clinica}`,
+  subject: `🚀 Nou Lead: ${clinica}`,
   html: `
     <div style="font-family: sans-serif; background-color: #000; color: #fff; padding: 30px; border-radius: 10px; border: 1px solid #B8FF2E;">
-      <h1 style="color: #B8FF2E; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 0;">Nuevo Lead Detectado</h1>
+      <h1 style="color: #B8FF2E; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 0;">Nou Lead Detectat</h1>
       <p style="font-size: 18px; margin-bottom: 20px;"><strong>Clínica:</strong> ${clinica}</p>
       
       <div style="background-color: #111; padding: 20px; border-radius: 8px;">
@@ -27,11 +27,11 @@ const data = await resend.emails.send({
           <a href="https://wa.me/${tel.replace(/\s+/g, '')}" style="color: #B8FF2E; text-decoration: none;">${tel}</a>
         </p>       
         <p style="margin: 5px 0;"><strong>🏥 Sector:</strong> ${sector}</p>
-        <p style="margin: 5px 0;"><strong>💰 Facturación:</strong> ${facturacion}</p>
+        <p style="margin: 5px 0;"><strong>💰 Facturació:</strong> ${facturacion}</p>
       </div>
       
       <p style="font-size: 12px; color: #666; margin-top: 20px; text-align: center;">
-        Este es un aviso automático de Avoid Studio enviado vía Utilix.
+        Aquest és un avís automàtic d'Avoid Studio enviat via Utilix.
       </p>
     </div>
   `,
@@ -42,5 +42,3 @@ const data = await resend.emails.send({
     return NextResponse.json({ error }, { status: 500 });
   }
 }
-
-

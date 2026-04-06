@@ -38,86 +38,86 @@ function SlideIn({
 const pieces = [
   {
     name: 'n8n',
-    role: 'El cerebro del sistema',
+    role: 'El cervell del sistema',
     color: '#FF6B35',
-    tag: 'Motor de automatización',
-    headline: 'El director de orquesta que coordina todo.',
-    body: 'n8n es la plataforma que conecta todas las piezas y decide cuándo actuar. Funciona como un empleado invisible que trabaja las 24 horas: comprueba el calendario, detecta qué citas hay mañana, genera los mensajes correctos y los envía en el momento exacto. Sin que tú hagas nada.',
-    note: 'Instalado en la nube de AVOID. Tú no gestionas nada técnico.',
+    tag: 'Motor d\'automatització',
+    headline: 'El director d\'orquestra que ho coordina tot.',
+    body: 'n8n és la plataforma que connecta totes les peces i decideix quan actuar. Funciona com un empleat invisible que treballa les 24 hores: comprova el calendari, detecta quines cites hi ha demà, genera els missatges correctes i els envia en el moment exacte. Sense que tu facis res.',
+    note: 'Instal·lat al núvol d\'AVOID. Tu no gestiones res tècnic.',
     stats: [
-      { label: 'Workflows activos', val: '7' },
-      { label: 'Ejecuciones / día', val: '~40' },
-      { label: 'Intervención manual', val: '0' },
+      { label: 'Workflows actius', val: '7' },
+      { label: 'Execucions / dia', val: '~40' },
+      { label: 'Intervenció manual', val: '0' },
     ],
   },
   {
     name: 'Twilio',
-    role: 'El canal de comunicación',
+    role: 'El canal de comunicació',
     color: '#F22F46',
     tag: 'WhatsApp Business API',
-    headline: 'El que habla con tus pacientes. De verdad.',
-    body: 'Twilio es la infraestructura oficial de WhatsApp para empresas. Gracias a él, el sistema envía y recibe mensajes reales — no simulados. Cuando un paciente responde "sí" a las 11 de la noche, Twilio lo captura y lo procesa en menos de un segundo.',
-    note: 'Coste real: ~0,005€ por mensaje. Para 80 citas/mes, menos de 12€/mes total.',
+    headline: 'El que parla amb els teus pacients. De debò.',
+    body: 'Twilio és la infraestructura oficial de WhatsApp per a empreses. Gràcies a ell, el sistema envia i rep missatges reals — no simulats. Quan un pacient respon "sí" a les 11 de la nit, Twilio ho captura i ho processa en menys d\'un segon.',
+    note: 'Cost real: ~0,005€ per missatge. Per a 80 cites/mes, menys de 12€/mes en total.',
     stats: [
-      { label: 'Coste por mensaje', val: '0,005€' },
+      { label: 'Cost per missatge', val: '0,005€' },
       { label: 'Entrega', val: '<1s' },
-      { label: 'Apertura WhatsApp', val: '98%' },
+      { label: 'Obertura WhatsApp', val: '98%' },
     ],
   },
   {
     name: 'Google Calendar',
-    role: 'La fuente de verdad',
+    role: 'La font de veritat',
     color: '#4285F4',
-    tag: 'Tu agenda actual',
-    headline: 'El sistema lee tu calendario. Tú no cambias nada.',
-    body: 'No hay que instalar software nuevo ni migrar datos. El sistema lee el Google Calendar que ya usas, extrae el nombre y teléfono del paciente del título de cada evento, y actúa. Cuando una cita se confirma, el título se actualiza con ✅. Cuando se cancela, con ❌.',
-    note: 'Formato: "Laura Martín - 612345678" o "Laura (primera visita) - 612345678"',
+    tag: 'La teva agenda actual',
+    headline: 'El sistema llegeix el teu calendari. Tu no canvies res.',
+    body: 'No cal instal·lar programari nou ni migrar dades. El sistema llegeix el Google Calendar que ja fas servir, extreu el nom i telèfon del pacient del títol de cada event, i actua. Quan una cita es confirma, el títol s\'actualitza amb ✅. Quan es cancel·la, amb ❌.',
+    note: 'Format: "Laura Martín - 612345678" o "Laura (primera visita) - 612345678"',
     stats: [
-      { label: 'Software nuevo', val: 'Ninguno' },
-      { label: 'Migración', val: 'No' },
+      { label: 'Programari nou', val: 'Cap' },
+      { label: 'Migració', val: 'No' },
       { label: 'Sync', val: 'Real-time' },
     ],
   },
   {
     name: 'Webhook',
-    role: 'El oído que nunca duerme',
+    role: 'L\'oïda que mai dorm',
     color: '#B8FF2E',
-    tag: 'Escucha activa 24/7',
-    headline: 'Captura cada respuesta al instante, a cualquier hora.',
-    body: 'Un webhook es un punto de conexión siempre encendido. Cuando un paciente responde "confirmo" a las 11 de la noche o un domingo, el sistema lo detecta al instante y ejecuta la acción correcta: avisar al negocio, responder al paciente y actualizar el calendario. Sin demoras, sin horarios.',
-    note: 'Detecta +20 variantes: SÍ, SI, 1, OK, YES, VOY / NO, CANCELO, 2, NO PUEDO, ANULO...',
+    tag: 'Escolta activa 24/7',
+    headline: 'Captura cada resposta a l\'instant, a qualsevol hora.',
+    body: 'Un webhook és un punt de connexió sempre encès. Quan un pacient respon "confirmo" a les 11 de la nit o un diumenge, el sistema ho detecta a l\'instant i executa l\'acció correcta: avisar el negoci, respondre al pacient i actualitzar el calendari. Sense demores, sense horaris.',
+    note: 'Detecta +20 variants: SÍ, SI, 1, OK, YES, VINC / NO, CANCEL·LO, 2, NO PUC, ANUL·LO...',
     stats: [
-      { label: 'Disponibilidad', val: '24/7' },
-      { label: 'Reacción', val: '<2s' },
-      { label: 'Variantes detectadas', val: '+20' },
+      { label: 'Disponibilitat', val: '24/7' },
+      { label: 'Reacció', val: '<2s' },
+      { label: 'Variants detectades', val: '+20' },
     ],
   },
   {
     name: 'Google Maps',
-    role: 'Tu reputación en automático',
+    role: 'La teva reputació en automàtic',
     color: '#34A853',
     tag: 'Google Reviews',
-    headline: 'Más reseñas. Mejor posición. Más pacientes nuevos.',
-    body: '24 horas después de cada visita, el sistema envía un WhatsApp con el enlace directo a tu ficha de Google. Sin rodeos, sin pasos extra, en el momento en que el paciente todavía recuerda bien cómo fue. El resultado: entre 3 y 5 reseñas nuevas por semana en clínicas activas, sin que nadie del equipo pida nada.',
-    note: 'El 87% de nuevos pacientes elige clínica basándose en reseñas de Google.',
+    headline: 'Més ressenyes. Millor posició. Més pacients nous.',
+    body: '24 hores després de cada visita, el sistema envia un WhatsApp amb l\'enllaç directe a la teva fitxa de Google. Sense rodeos, sense passos extra, en el moment en què el pacient encara recorda bé com va anar. El resultat: entre 3 i 5 ressenyes noves per setmana en clíniques actives, sense que ningú de l\'equip demani res.',
+    note: 'El 87% dels nous pacients tria clínica basant-se en ressenyes de Google.',
     stats: [
-      { label: 'Reseñas / semana', val: '3–5' },
-      { label: 'Momento de envío', val: '+24h' },
-      { label: 'Conversión media', val: '31%' },
+      { label: 'Ressenyes / setmana', val: '3–5' },
+      { label: 'Moment d\'enviament', val: '+24h' },
+      { label: 'Conversió mitjana', val: '31%' },
     ],
   },
   {
     name: 'Static Data',
-    role: 'La memoria del sistema',
+    role: 'La memòria del sistema',
     color: '#8B5CF6',
-    tag: 'Estado de confirmaciones',
-    headline: 'Sabe exactamente qué citas están pendientes. Siempre.',
-    body: 'El sistema guarda el estado de cada cita enviada: si el paciente respondió, confirmó, canceló o todavía no ha dicho nada. Con esa información, el Safety Net de las 9h del día anterior sabe exactamente a quién incluir en la lista de pendientes. Nada se cae por las grietas.',
-    note: 'La memoria se resetea automáticamente cada día. Sin acumulación de datos innecesarios.',
+    tag: 'Estat de confirmacions',
+    headline: 'Sap exactament quines cites estan pendents. Sempre.',
+    body: 'El sistema guarda l\'estat de cada cita enviada: si el pacient ha respost, ha confirmat, ha cancel·lat o encara no ha dit res. Amb aquesta informació, el Safety Net de les 9h del dia anterior sap exactament qui incloure a la llista de pendents. Res no cau per les escletxes.',
+    note: 'La memòria es reseteja automàticament cada dia. Sense acumulació de dades innecessàries.',
     stats: [
-      { label: 'Estados rastreados', val: '3' },
-      { label: 'Falsos positivos', val: '0' },
-      { label: 'Reset', val: 'Diario' },
+      { label: 'Estats rastrejats', val: '3' },
+      { label: 'Falsos positius', val: '0' },
+      { label: 'Reset', val: 'Diari' },
     ],
   },
 ]
@@ -237,20 +237,20 @@ export default function Arquitectura() {
             <SlideIn from="bottom">
               <div className="pill mb-8 inline-flex">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#B8FF2E] animate-pulse" />
-                La Estructura · nuestras herramientas
+                L'Estructura · les nostres eines
               </div>
             </SlideIn>
             <SlideIn from="bottom" delay={0.1}>
               <h1 className="text-[clamp(3rem,9vw,9rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-6">
-                <span className="text-white/15">Cómo funciona</span><br />
-                <span className="text-[#B8FF2E] acid-glow">por dentro.</span>
+                <span className="text-white/15">Com funciona</span><br />
+                <span className="text-[#B8FF2E] acid-glow">per dins.</span>
               </h1>
             </SlideIn>
             <SlideIn from="bottom" delay={0.2}>
               <p className="text-white/35 text-base md:text-xl font-medium max-w-2xl leading-relaxed">
-                Seis herramientas conectadas entre sí. Cada una hace una cosa
-                concreta y la hace muy bien. Juntas, forman un sistema que no
-                necesita que nadie lo vigile.
+                Sis eines connectades entre si. Cada una fa una cosa
+                concreta i la fa molt bé. Juntes, formen un sistema que no
+                necessita que ningú el vigili.
               </p>
             </SlideIn>
           </div>
@@ -273,17 +273,17 @@ export default function Arquitectura() {
                 <div className="w-px h-10 bg-white/10 hidden md:block self-center" />
 
                 <p className="flex-1 text-white/45 text-sm font-medium leading-relaxed text-center md:text-left relative z-10">
-                  Todas las piezas de abajo están coordinadas por{' '}
+                  Totes les peces de baix estan coordinades per{' '}
                   <span className="text-white/75 font-bold">n8n</span>, el motor central.
-                  Es lo que hace que todo ocurra en el momento correcto, con los datos correctos,
-                  sin que tú tengas que hacer nada.
+                  És el que fa que tot passi en el moment correcte, amb les dades correctes,
+                  sense que tu hagis de fer res.
                 </p>
 
                 <div className="flex gap-6 md:gap-8 text-center flex-shrink-0 relative z-10">
                   {[
-                    { v: '7', l: 'flujos' },
-                    { v: '24/7', l: 'activo' },
-                    { v: '0', l: 'intervención' },
+                    { v: '7', l: 'fluxos' },
+                    { v: '24/7', l: 'actiu' },
+                    { v: '0', l: 'intervenció' },
                   ].map((s, i) => (
                     <div key={i}>
                       <div className="text-2xl font-extrabold text-[#B8FF2E] tracking-tighter">{s.v}</div>
@@ -313,14 +313,14 @@ export default function Arquitectura() {
                 <div className="flex items-center gap-3 mb-8">
                   <Zap size={14} className="text-[#B8FF2E]" />
                   <div className="text-[10px] font-black uppercase tracking-widest text-white/30">
-                    Cómo escribir los títulos en Google Calendar
+                    Com escriure els títols a Google Calendar
                   </div>
                 </div>
                 <div className="grid md:grid-cols-3 gap-4 mb-6">
                   {[
-                    { label: 'Formato estándar', val: 'Laura Martín - 612345678' },
-                    { label: 'Primera visita', val: 'Carlos Vega - 698765432 (primera visita)' },
-                    { label: 'Con prefijo', val: 'Ana López | +34612345678' },
+                    { label: 'Format estàndard',    val: 'Laura Martín - 612345678' },
+                    { label: 'Primera visita',       val: 'Carlos Vega - 698765432 (primera visita)' },
+                    { label: 'Amb prefix',           val: 'Ana López | +34612345678' },
                   ].map((ex, i) => (
                     <div key={i} className="bg-[#0B0B12] border border-white/5 p-5">
                       <div className="flex items-center gap-2 mb-3">
@@ -332,9 +332,9 @@ export default function Arquitectura() {
                   ))}
                 </div>
                 <p className="text-white/20 text-xs font-medium leading-relaxed">
-                  El sistema extrae automáticamente el nombre y el teléfono. Si el título incluye
-                  "primera visita", genera un mensaje de bienvenida distinto al de revisión. No hay
-                  que tocar ningún otro ajuste.
+                  El sistema extreu automàticament el nom i el telèfon. Si el títol inclou
+                  "primera visita", genera un missatge de benvinguda diferent al de revisió. No cal
+                  tocar cap altre ajust.
                 </p>
               </div>
             </SlideIn>
@@ -346,23 +346,23 @@ export default function Arquitectura() {
           <div className="max-w-3xl mx-auto text-center">
             <SlideIn from="bottom">
               <h2 className="text-[clamp(2rem,5vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-6">
-                <span className="text-white/25">Todo esto</span><br />
-                <span className="text-[#B8FF2E] acid-glow">Sin hacer nada</span>
+                <span className="text-white/25">Tot això</span><br />
+                <span className="text-[#B8FF2E] acid-glow">Sense fer res</span>
               </h2>
               <p className="text-white/35 font-medium leading-relaxed max-w-lg mx-auto mb-10 text-sm md:text-base">
-                No tienes que entender cada pieza técnica. Solo disfrutar del resultado:
-                tu agenda llena, tus pacientes confirmados y tu Google Maps creciendo solo.
+                No has d'entendre cada peça tècnica. Només gaudir del resultat:
+                la teva agenda plena, els teus pacients confirmats i el teu Google Maps creixent sol.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="/diagnostico" className="btn-acid">
-                  Solicitar diagnóstico gratuito <ArrowRight size={13} />
+                  Sol·licitar diagnòstic gratuït <ArrowRight size={13} />
                 </a>
                 <a href="/#sistema" className="btn-ghost">
-                  Ver los 7 flujos
+                  Veure els 7 fluxos
                 </a>
               </div>
               <p className="text-white/25 text-[10px] font-medium mt-8 mono">
-                Sin compromiso · Setup completo · Soporte incluido
+                Sense compromís · Setup complet · Suport inclòs
               </p>
             </SlideIn>
           </div>

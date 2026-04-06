@@ -7,28 +7,28 @@ import Footer from '@/components/Footer'
 
 const faqs = [
   {
-    q: '¿Qué ROI puedo esperar realmente?',
-    a: 'La media de nuestros sistemas se sitúa en ×4 el primer año. Recuperamos facturación que ya tenías pero perdías por olvidos, cancelaciones no cubiertas o falta de seguimiento en leads. Una clínica con 8 no-shows/mes a 60€ = 480€/mes recuperables.',
+    q: 'Quin ROI puc esperar realment?',
+    a: 'La mitjana dels nostres sistemes se situa en ×4 el primer any. Recuperem facturació que ja tenies però perdies per oblits, cancel·lacions no cobertes o falta de seguiment en leads. Una clínica amb 8 no-shows/mes a 60€ = 480€/mes recuperables.',
   },
   {
-    q: '¿Tengo que cambiar mi software actual?',
-    a: 'No. Somos agnósticos al software. Nos conectamos a lo que ya usas (Google Calendar) mediante n8n para crear una capa de inteligencia superior. Sin migraciones, sin interrupciones.',
+    q: 'He de canviar el meu programari actual?',
+    a: 'No. Som agnòstics al programari. Ens connectem al que ja fas servir (Google Calendar) mitjançant n8n per crear una capa d\'intel·ligència superior. Sense migracions, sense interrupcions.',
   },
   {
-    q: '¿Qué pasa con la privacidad de mis pacientes?',
-    a: 'Todas las automatizaciones cumplen el RGPD. Usamos cifrado de extremo a extremo y los datos solo se utilizan para los disparadores (triggers) que tú autorices. Los datos no salen de tu infraestructura.',
+    q: 'Què passa amb la privacitat dels meus pacients?',
+    a: 'Totes les automatitzacions compleixen el RGPD. Fem servir xifrat de cap a cap i les dades només s\'utilitzen per als disparadors (triggers) que tu autoritzes. Les dades no surten de la teva infraestructura.',
   },
   {
-    q: '¿Cuánto tiempo necesito dedicarle?',
-    a: 'La instalación es 100% Done-For-You. Solo necesitamos 2 horas de tu tiempo: una para el diagnóstico y otra para la validación final. Después el sistema trabaja solo.',
+    q: 'Quant de temps he de dedicar-hi?',
+    a: 'La instal·lació és 100% Done-For-You. Només necessitem 2 hores del teu temps: una per al diagnòstic i una altra per a la validació final. Després el sistema treballa sol.',
   },
   {
-    q: '¿Funciona con cualquier tipo de clínica?',
-    a: 'Sí. Fisioterapia, odontología, psicología, osteopatía, nutrición, estética médica, veterinaria — cualquier negocio que viva de las citas concertadas. El sistema se adapta al sector.',
+    q: 'Funciona amb qualsevol tipus de clínica?',
+    a: 'Sí. Fisioteràpia, odontologia, psicologia, osteopatia, nutrició, estètica mèdica, veterinària — qualsevol negoci que visqui de les cites concertades. El sistema s\'adapta al sector.',
   },
   {
-    q: '¿Qué pasa si un paciente no tiene WhatsApp?',
-    a: 'El sistema detecta el número y solo envía si el número tiene WhatsApp activo. Si no lo tiene, la cita queda marcada como pendiente manual en el Safety Net para que el equipo pueda llamar.',
+    q: 'Què passa si un pacient no té WhatsApp?',
+    a: 'El sistema detecta el número i només envia si el número té WhatsApp actiu. Si no en té, la cita queda marcada com a pendent manual al Safety Net perquè l\'equip pugui trucar.',
   },
 ]
 
@@ -53,7 +53,7 @@ export default function FAQ() {
 
   return (
     <main className="bg-[#04040A]">
-      {/* Inyección del Schema para Google */}
+      {/* Injecció de l'Schema per a Google */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -70,8 +70,8 @@ export default function FAQ() {
               transition={{ duration: 0.8 }}
               className="text-[clamp(2.5rem,6vw,6rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase"
             >
-              <span className="text-white/20">Preguntas</span><br />
-              <span className="text-[#B8FF2E] acid-glow">frecuentes.</span>
+              <span className="text-white/20">Preguntes</span><br />
+              <span className="text-[#B8FF2E] acid-glow">freqüents.</span>
             </motion.h2>
           </div>
 

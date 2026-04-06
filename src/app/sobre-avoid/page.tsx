@@ -5,35 +5,35 @@ import { ArrowRight, Zap } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-// ── COPY — misma estructura, otras palabras ──────────────────────
+// ── COPY — mateixa estructura, altres paraules ──────────────────────
 const problems = [
-  'Todo dependía de que una persona concreta estuviera presente',
-  'Cada herramienta funcionaba por separado, sin hablar con las demás',
-  'El tiempo del equipo se iba en cosas que podían hacerse solas',
-  'Había pacientes que desaparecían porque nadie los llamaba después',
+  'Tot depenia que una persona concreta hi fos present',
+  'Cada eina funcionava per separat, sense parlar amb les altres',
+  'El temps de l\'equip se n\'anava en coses que podien fer-se soles',
+  'Hi havia pacients que desapareixien perquè ningú els trucava després',
 ]
 
 const understood = [
-  'El problema no era hacer las cosas más rápido. Era hacer otras cosas.',
-  'Cada tarea manual que se elimina es tiempo que se convierte en dinero.',
-  'Un buen sistema sigue trabajando incluso cuando nadie está mirando.',
+  'El problema no era fer les coses més ràpid. Era fer altres coses.',
+  'Cada tasca manual que s\'elimina és temps que es converteix en diners.',
+  'Un bon sistema segueix treballant fins i tot quan ningú hi és.',
 ]
 
 const method = [
   {
     n: '01',
-    t: 'Análisis sin filtros',
-    d: 'Antes de proponer nada, miramos por dentro cómo funciona tu negocio de verdad. Qué está costando dinero. Qué está costando tiempo.',
+    t: 'Anàlisi sense filtres',
+    d: 'Abans de proposar res, mirem per dins com funciona el teu negoci de veritat. Què està costant diners. Què està costant temps.',
   },
   {
     n: '02',
-    t: 'Diseño específico para ti',
-    d: 'No usamos la misma solución para todos. Cada sistema se construye pensando en cómo funciona tu clínica concreta. Lo que sirve para una no encaja en otra.',
+    t: 'Disseny específic per a tu',
+    d: 'No fem servir la mateixa solució per a tots. Cada sistema es construeix pensant en com funciona la teva clínica concreta. El que serveix per a una no encaixa en una altra.',
   },
   {
     n: '03',
-    t: 'Números reales, no estimaciones',
-    d: 'Si no se puede medir, no cuenta. Trabajamos con datos concretos: huecos recuperados, dinero generado, horas que ya no tienes que dedicar.',
+    t: 'Números reals, no estimacions',
+    d: 'Si no es pot mesurar, no compta. Treballem amb dades concretes: buits recuperats, diners generats, hores que ja no has de dedicar.',
   },
 ]
 
@@ -73,7 +73,7 @@ export default function SobreAvoid() {
             className="pill mb-10 inline-flex"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#B8FF2E] animate-pulse" />
-            Quiénes somos
+            Qui som
           </motion.div>
 
           <motion.h1
@@ -83,7 +83,7 @@ export default function SobreAvoid() {
             className="text-[clamp(3rem,8vw,8rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-8"
           >
             <span className="text-white/15">Del problema</span><br />
-            <span className="text-[#B8FF2E] acid-glow">a la solución.</span>
+            <span className="text-[#B8FF2E] acid-glow">a la solució.</span>
           </motion.h1>
 
           <motion.p
@@ -92,8 +92,8 @@ export default function SobreAvoid() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white/40 text-lg md:text-2xl font-medium max-w-2xl leading-relaxed"
           >
-            AVOID nació de ver, una y otra vez, clínicas que funcionaban bien
-            pero perdían dinero por cosas que se podían solucionar solas.
+            AVOID va néixer de veure, una vegada i una altra, clíniques que funcionaven bé
+            però perdien diners per coses que es podien solucionar soles.
           </motion.p>
         </div>
       </section>
@@ -102,9 +102,9 @@ export default function SobreAvoid() {
       <section className="section">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 md:gap-24 items-start">
           <Section>
-            <div className="text-[9px] font-black uppercase tracking-widest text-[#B8FF2E]/50 mb-6 mono">// El origen</div>
+            <div className="text-[9px] font-black uppercase tracking-widest text-[#B8FF2E]/50 mb-6 mono">// L'origen</div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight uppercase mb-8">
-              Lo que encontramos
+              El que vam trobar
             </h2>
             <div className="flex flex-col gap-4">
               {problems.map((p, i) => (
@@ -119,9 +119,9 @@ export default function SobreAvoid() {
           </Section>
 
           <Section>
-            <div className="text-[9px] font-black uppercase tracking-widest text-[#B8FF2E]/50 mb-6 mono">// Lo que entendimos</div>
+            <div className="text-[9px] font-black uppercase tracking-widest text-[#B8FF2E]/50 mb-6 mono">// El que vam entendre</div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight uppercase mb-8">
-              La conclusión
+              La conclusió
             </h2>
             <div className="flex flex-col gap-4 mb-10">
               {understood.map((u, i) => (
@@ -135,38 +135,38 @@ export default function SobreAvoid() {
             </div>
             <blockquote className="border-l-2 border-[#B8FF2E]/40 pl-6">
               <p className="text-white/30 text-sm italic leading-relaxed font-medium">
-                "Así fue tomando forma AVOID. No como un producto. Como la respuesta
-                natural a algo que veíamos pasar en todas y cada una de las clínicas."
+                "Així va anar prenent forma AVOID. No com un producte. Com la resposta
+                natural a alguna cosa que veiem passar en totes i cadascuna de les clíniques."
               </p>
             </blockquote>
           </Section>
         </div>
       </section>
 
-      {/* ── QUÉ HACEMOS HOY ── */}
+      {/* ── QUÈ FEM AVUI ── */}
       <section className="section bg-[#060610] border-y border-white/5">
         <div className="max-w-5xl mx-auto text-center">
           <Section>
-            <div className="pill mb-8 inline-flex">Hoy</div>
+            <div className="pill mb-8 inline-flex">Avui</div>
             <h2 className="text-[clamp(2rem,5vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-10">
-              <span className="text-white/20">Menos ruido.</span><br />
-              <span className="text-[#B8FF2E] acid-glow">Más resultado.</span>
+              <span className="text-white/20">Menys soroll.</span><br />
+              <span className="text-[#B8FF2E] acid-glow">Més resultat.</span>
             </h2>
             <p className="text-white/40 text-lg font-medium max-w-2xl mx-auto leading-relaxed">
-              Conectamos las herramientas que ya usas, eliminamos las tareas que
-              consumen tiempo sin generar valor y reducimos todo lo que frena a tu
-              clínica. El resultado: facturación que crece sin que tengas que estar
-              pendiente de todo.
+              Connectem les eines que ja fas servir, eliminem les tasques que
+              consumeixen temps sense generar valor i reduïm tot el que frena la teva
+              clínica. El resultat: facturació que creix sense que hagis d'estar
+              pendent de tot.
             </p>
           </Section>
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
             {[
-              { val: '72h',  label: 'Setup completo'  },
+              { val: '72h',  label: 'Setup complet'  },
               { val: '−38%', label: 'No-shows'        },
-              { val: '×4',   label: 'ROI medio'       },
-              { val: '24/7', label: 'Activo siempre'  },
+              { val: '×4',   label: 'ROI mitjà'       },
+              { val: '24/7', label: 'Actiu sempre'    },
             ].map((s, i) => (
               <Section key={i}>
                 <div className="p-6 border border-white/5 bg-white/[0.02] text-center">
@@ -179,14 +179,14 @@ export default function SobreAvoid() {
         </div>
       </section>
 
-      {/* ── MÉTODO ── */}
+      {/* ── MÈTODE ── */}
       <section className="section">
         <div className="max-w-5xl mx-auto">
           <Section className="mb-16 md:mb-20">
-            <div className="pill mb-8 inline-flex">Cómo trabajamos</div>
+            <div className="pill mb-8 inline-flex">Com treballem</div>
             <h2 className="text-[clamp(2rem,5vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase">
-              <span className="text-white/20">Sin rodeos.</span><br />
-              <span className="text-[#B8FF2E] acid-glow">Sin humo.</span>
+              <span className="text-white/20">Sense rodeos.</span><br />
+              <span className="text-[#B8FF2E] acid-glow">Sense fum.</span>
             </h2>
           </Section>
 
@@ -214,18 +214,18 @@ export default function SobreAvoid() {
           <Section>
             <Zap size={28} className="text-[#B8FF2E] mx-auto mb-8 opacity-60" />
             <h2 className="text-[clamp(2rem,5vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-6">
-              ¿Tiene sentido<br />
-              <span className="text-[#B8FF2E] acid-glow">hablar?</span>
+              Té sentit<br />
+              <span className="text-[#B8FF2E] acid-glow">parlar?</span>
             </h2>
             <p className="text-white/40 font-medium mb-10 max-w-md mx-auto leading-relaxed">
-              En 30 minutos vemos juntos cuánto dinero está saliendo por la puerta
-              y qué hace falta para pararlo.
+              En 30 minuts veiem junts quants diners estan sortint per la porta
+              i què cal fer per aturar-ho.
             </p>
             <a href="/diagnostico" className="btn-acid inline-flex">
-              Solicitar diagnóstico gratuito <ArrowRight size={14} />
+              Sol·licitar diagnòstic gratuït <ArrowRight size={14} />
             </a>
             <p className="text-white/20 text-xs font-medium mt-6 mono">
-              Sin compromiso · Respondemos en menos de 24h
+              Sense compromís · Responem en menys de 24h
             </p>
           </Section>
         </div>

@@ -2,31 +2,36 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 // ── METADATA ────────────────────────────────────────────────────
-// Title: intención de búsqueda local + solución específica. Sin palabras en inglés.
-// Description: problema → solución → zona → CTA implícito. Max 155 chars.
+// Títol: intenció de cerca local en català + solució específica.
+// Descripció: problema → solució → zona → CTA implícit. Màx 155 chars.
+// NOTA SEO: Mantenim títols en català per capturar cerques en català
+// ("automatització cites clínica Vic") que Google ara indexa de forma independent.
 export const metadata: Metadata = {
-  title: 'Automatización de citas para clínicas en Vic y Osona · AVOID Studio',
-  description: 'Eliminamos los no-shows en clínicas de Vic, Manlleu y Torelló con WhatsApp + Google Calendar. Setup 72h. Sin cambiar tu software. Diagnóstico gratuito.',
-  // ── AÑADE ESTA PARTE AQUÍ ──
+  title: 'Automatització de cites per a clíniques a Vic i Osona · AVOID Studio',
+  description: 'Eliminem els no-shows en clíniques de Vic, Manlleu i Torelló amb WhatsApp + Google Calendar. Setup 72h. Sense canviar el teu programari. Diagnòstic gratuït.',
   icons: {
-    icon: '/favicon.png', // Esto le dice a Next.js que use tu nuevo PNG
+    icon: '/favicon.png',
     shortcut: '/favicon.png',
-    apple: '/favicon.png', // Opcional: puedes usar el mismo para dispositivos Apple
+    apple: '/favicon.png',
   },
-  // ───────────────────────────
   keywords: [
+    // Català — prioritat per a cerques locals a Osona
+    'automatització cites clíniques Vic',
+    'eliminar no-shows fisioteràpia Osona',
+    'recordatoris WhatsApp clínica dental Vic',
+    'sistema gestió cites Manlleu',
+    'automatitzar agenda clínica Torelló',
+    'reduir absències cites mèdiques Osona',
+    'gestió automàtica cites fisioteràpia Vic',
+    'recordatori cites automàtic clínica',
+    'agenda intel·ligent clíniques comarca Osona',
+    'reactivació pacients clínica dental Vic',
+    'automatització WhatsApp clínica privada',
+    'sistema anti no-show clínica',
+    // Castellà — cobertura de cerques en castellà des d'Osona
     'automatización citas clínicas Vic',
     'eliminar no-shows fisioterapia Osona',
     'recordatorios WhatsApp clínica dental Vic',
-    'sistema gestión citas Manlleu',
-    'automatizar agenda clínica Torelló',
-    'reducir ausencias citas médicas Osona',
-    'gestión automática citas fisioterapia Vic',
-    'recordatorio citas automático clínica',
-    'agenda inteligente clínicas comarca Osona',
-    'reactivación pacientes clínica dental Vic',
-    'automatización WhatsApp clínica privada',
-    'sistema anti no-show clínica',
   ].join(', '),
   authors: [{ name: 'AVOID Studio', url: 'https://avoidstudio.es' }],
   creator: 'AVOID Studio',
@@ -44,28 +49,29 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Automatización de citas para clínicas en Vic y Osona · AVOID Studio',
-    description: 'Reducimos los no-shows entre el 35% y el 45% con WhatsApp + Google Calendar. Sin cambiar tu software. Setup en 72h.',
+    title: 'Automatització de cites per a clíniques a Vic i Osona · AVOID Studio',
+    description: 'Reduïm els no-shows entre el 35% i el 45% amb WhatsApp + Google Calendar. Sense canviar el teu programari. Setup en 72h.',
     type: 'website',
     url: 'https://avoidstudio.es',
     siteName: 'AVOID Studio',
-    locale: 'es_ES',
+    // MILLORA SEO: afegit ca_ES per capturar usuaris amb configuració en català
+    locale: 'ca_ES',
     images: [{
       url: 'https://avoidstudio.es/og-image.jpg',
       width: 1200,
       height: 630,
-      alt: 'AVOID Studio – Automatización de citas para clínicas en Osona',
+      alt: 'AVOID Studio – Automatització de cites per a clíniques a Osona',
     }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Automatización de citas para clínicas · Vic y Osona',
-    description: 'Eliminamos los no-shows con WhatsApp + Google Calendar. Sin cambiar tu software.',
+    title: 'Automatització de cites per a clíniques · Vic i Osona',
+    description: 'Eliminem els no-shows amb WhatsApp + Google Calendar. Sense canviar el teu programari.',
     images: ['https://avoidstudio.es/og-image.jpg'],
   },
 }
 
-// userScalable eliminado: Google penaliza bloqueo de zoom en móvil desde 2021
+// userScalable eliminat: Google penalitza el bloqueig de zoom en mòbil des de 2021
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -75,21 +81,31 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 
   // ── SCHEMA 1: LocalBusiness + ITService ─────────────────────
-  // @type doble para máxima cobertura: servicio profesional + tecnología
-  // areaServed: objetos Place estructurados (más peso que strings sueltos)
-  // Placeholders marcados con ← para que los sustituyas antes de publicar
+  // @type doble per màxima cobertura: servei professional + tecnologia
+  // areaServed: objectes Place estructurats (més pes que strings solts)
+  // ─────────────────────────────────────────────────────────────
+  // ⚠️  PLACEHOLDERS — substitueix abans de publicar:
+  //   telephone  → el teu número real (ex: "+34938000000")
+  //   email      → el teu email real (ex: "hola@avoidstudio.es")
+  //   hasMap     → el CID de Google Maps:
+  //                  1. Busca el teu negoci a maps.google.com
+  //                  2. Clica "Compartir" → copia l'URL
+  //                  3. Extreu el CID de l'URL copiada
+  //   sameAs     → les URLs reals dels teus perfils socials
+  // ─────────────────────────────────────────────────────────────
   const schemaLocalBusiness = {
     '@context': 'https://schema.org',
     '@type': ['ProfessionalService', 'ITService'],
     '@id': 'https://avoidstudio.es/#business',
     name: 'AVOID Studio',
     alternateName: 'Avoid Strategic Studio',
-    description: 'Agencia de automatización de citas para clínicas en Osona. Eliminamos los no-shows con WhatsApp y Google Calendar. Fisioterapia, odontología, estética médica y psicología en Vic, Manlleu, Torelló y comarca.',
+    // MILLORA SEO: descripció en català per a la comarca d'Osona
+    description: 'Agència d\'automatització de cites per a clíniques a Osona. Eliminem els no-shows amb WhatsApp i Google Calendar. Fisioteràpia, odontologia, estètica mèdica i psicologia a Vic, Manlleu, Torelló i comarca.',
     url: 'https://avoidstudio.es',
     logo: { '@type': 'ImageObject', url: 'https://avoidstudio.es/logo.png', width: 512, height: 512 },
     image: 'https://avoidstudio.es/og-image.jpg',
-    telephone: '+34600000000',        // ← Sustituye por tu número real
-    email: 'hola@avoidstudio.es',     // ← Sustituye por tu email real
+    telephone: '+34600000000',        // ← Substitueix pel teu número real
+    email: 'hola@avoidstudio.es',     // ← Substitueix pel teu email real
     priceRange: '$$',
     currenciesAccepted: 'EUR',
     address: {
@@ -100,29 +116,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       addressCountry: 'ES',
     },
     geo: { '@type': 'GeoCoordinates', latitude: 41.9301, longitude: 2.2544 },
-    // hasMap: obtén el CID en maps.google.com buscando tu negocio → compartir → copia la URL
-    hasMap: 'https://maps.google.com/?cid=TU_CID_AQUI', // ← Sustituye
+    // hasMap: obtén el CID a maps.google.com buscant el teu negoci → compartir → copia la URL
+    hasMap: 'https://maps.google.com/?cid=TU_CID_AQUI', // ← Substitueix
     openingHoursSpecification: [{
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       opens: '09:00',
       closes: '19:00',
     }],
-    knowsLanguage: ['es', 'ca'], // catalán + castellano para búsquedas locales
+    // MILLORA SEO: català primer (mercat principal Osona) + castellà
+    knowsLanguage: ['ca', 'es'],
     sameAs: [
-      'https://www.linkedin.com/company/avoidstudio',  // ← Sustituye por URLs reales
+      'https://www.linkedin.com/company/avoidstudio',  // ← Substitueix per URLs reals
       'https://www.instagram.com/avoidstudio',
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Sistemas de automatización para clínicas',
+      name: 'Sistemes d\'automatització per a clíniques',
       itemListElement: [
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Automatización de citas con WhatsApp para clínicas en Osona',
-            description: 'Recordatorios y confirmaciones automáticas por WhatsApp que reducen los no-shows entre el 35% y el 45%.',
+            name: 'Automatització de cites amb WhatsApp per a clíniques a Osona',
+            description: 'Recordatoris i confirmacions automàtiques per WhatsApp que redueixen els no-shows entre el 35% i el 45%.',
             areaServed: 'Osona',
           },
         },
@@ -130,8 +147,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Reactivación de pacientes inactivos',
-            description: 'Flujo automático que contacta a pacientes que no han vuelto en 90 días para recuperar facturación perdida.',
+            name: 'Reactivació de pacients inactius',
+            description: 'Flux automàtic que contacta pacients que no han tornat en 90 dies per recuperar facturació perduda.',
             areaServed: 'Osona',
           },
         },
@@ -139,89 +156,92 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Gestión automática de reseñas Google para clínicas',
-            description: 'Sistema que solicita reseñas 24h después de cada visita para mejorar el posicionamiento local en Google Maps.',
+            name: 'Gestió automàtica de ressenyes Google per a clíniques',
+            description: 'Sistema que sol·licita ressenyes 24h després de cada visita per millorar el posicionament local a Google Maps.',
             areaServed: 'Osona',
           },
         },
       ],
     },
-    // Municipios prioritarios primero, después comarca completa y limítrofes
+    // MILLORA SEO: municipis prioritaris primer, després comarca i zones limítrofs
+    // Ordre: nuclis principals d'Osona → comarca completa → Catalunya Central → limítrofs
     areaServed: [
-      { '@type': 'City', name: 'Vic',                     containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
-      { '@type': 'City', name: 'Manlleu',                 containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
-      { '@type': 'City', name: 'Torelló',                 containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
-      { '@type': 'City', name: 'Tona',                    containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
-      { '@type': 'City', name: 'Centelles',               containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
-      { '@type': 'City', name: 'Roda de Ter',             containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
-      { '@type': 'City', name: 'Taradell',                containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
-      { '@type': 'City', name: 'Sant Hipòlit de Voltregà',containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
-      { '@type': 'City', name: 'Gurb',                    containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
-      { '@type': 'City', name: 'Folgueroles',             containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
-      { '@type': 'City', name: 'Sant Pere de Torelló',    containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
-      { '@type': 'City', name: 'Santa Eugènia de Berga',  containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
-      { '@type': 'City', name: 'Calldetenes',             containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
-      { '@type': 'AdministrativeArea', name: 'Osona',     containedInPlace: { '@type': 'AdministrativeArea', name: 'Catalunya' } },
-      // Zonas limítrofes para expansión
-      { '@type': 'City', name: 'Granollers',  containedInPlace: { '@type': 'AdministrativeArea', name: 'Vallès Oriental' } },
-      { '@type': 'City', name: 'Berga',       containedInPlace: { '@type': 'AdministrativeArea', name: 'Berguedà' } },
-      { '@type': 'City', name: 'Ripoll',      containedInPlace: { '@type': 'AdministrativeArea', name: 'Ripollès' } },
+      { '@type': 'City', name: 'Vic',                      containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
+      { '@type': 'City', name: 'Manlleu',                  containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
+      { '@type': 'City', name: 'Torelló',                  containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
+      { '@type': 'City', name: 'Tona',                     containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
+      { '@type': 'City', name: 'Centelles',                containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
+      { '@type': 'City', name: 'Roda de Ter',              containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
+      { '@type': 'City', name: 'Taradell',                 containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
+      { '@type': 'City', name: 'Sant Hipòlit de Voltregà', containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
+      { '@type': 'City', name: 'Gurb',                     containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
+      { '@type': 'City', name: 'Folgueroles',              containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
+      { '@type': 'City', name: 'Sant Pere de Torelló',     containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
+      { '@type': 'City', name: 'Santa Eugènia de Berga',   containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
+      { '@type': 'City', name: 'Calldetenes',              containedInPlace: { '@type': 'AdministrativeArea', name: 'Osona' } },
+      // MILLORA SEO: comarca com a entitat pròpia + Catalunya Central com a regió
+      { '@type': 'AdministrativeArea', name: 'Osona',          containedInPlace: { '@type': 'AdministrativeArea', name: 'Catalunya' } },
+      { '@type': 'AdministrativeArea', name: 'Catalunya Central', containedInPlace: { '@type': 'AdministrativeArea', name: 'Catalunya' } },
+      // Zones limítrofs per a expansió
+      { '@type': 'City', name: 'Granollers', containedInPlace: { '@type': 'AdministrativeArea', name: 'Vallès Oriental' } },
+      { '@type': 'City', name: 'Berga',      containedInPlace: { '@type': 'AdministrativeArea', name: 'Berguedà' } },
+      { '@type': 'City', name: 'Ripoll',     containedInPlace: { '@type': 'AdministrativeArea', name: 'Ripollès' } },
     ],
   }
 
   // ── SCHEMA 2: FAQPage ─────────────────────────────────────────
-  // Las preguntas se muestran expandidas en Google → aumenta el CTR sin subir de posición
-  // Incluye keywords locales en las respuestas (Vic, Osona, etc.)
+  // Les preguntes es mostren desplegades a Google → augmenta el CTR sense pujar de posició
+  // MILLORA SEO: preguntes en català per capturar cerques en català a Osona
   const schemaFAQ = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
       {
         '@type': 'Question',
-        name: '¿Tengo que cambiar el software de gestión de mi clínica en Vic?',
+        name: 'He de canviar el programari de gestió de la meva clínica a Vic?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'No. El sistema AVOID funciona con Google Calendar, que ya usas, y se conecta sin necesidad de migrar datos ni instalar nada nuevo. Compatible con cualquier clínica de Vic, Manlleu, Torelló y comarca de Osona.',
+          text: 'No. El sistema AVOID funciona amb Google Calendar, que ja fas servir, i es connecta sense necessitat de migrar dades ni instal·lar res nou. Compatible amb qualsevol clínica de Vic, Manlleu, Torelló i comarca d\'Osona.',
         },
       },
       {
         '@type': 'Question',
-        name: '¿En cuánto tiempo se instala el sistema de automatización?',
+        name: 'En quant de temps s\'instal·la el sistema d\'automatització?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'El setup completo tarda 72 horas desde que confirmamos la implementación. Solo necesitamos 2 horas de tu tiempo para el diagnóstico inicial y la validación final.',
+          text: 'El setup complet triga 72 hores des que confirmem la implementació. Només necessitem 2 hores del teu temps per al diagnòstic inicial i la validació final.',
         },
       },
       {
         '@type': 'Question',
-        name: '¿Funciona para clínicas dentales, fisioterapia y estética en Osona?',
+        name: 'Funciona per a clíniques dentals, fisioteràpia i estètica a Osona?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Sí. El sistema está diseñado para cualquier clínica privada que viva de las citas: fisioterapia, odontología, psicología, nutrición y estética médica en Vic, Manlleu, Torelló, Tona, Centelles y toda la comarca de Osona.',
+          text: 'Sí. El sistema està dissenyat per a qualsevol clínica privada que visqui de les cites: fisioteràpia, odontologia, psicologia, nutrició i estètica mèdica a Vic, Manlleu, Torelló, Tona, Centelles i tota la comarca d\'Osona.',
         },
       },
       {
         '@type': 'Question',
-        name: '¿Cuánto se reduce la tasa de no-shows?',
+        name: 'Quant es redueix la taxa de no-shows?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Los recordatorios automáticos por WhatsApp reducen los no-shows entre el 35% y el 45%, según estudios de clínicas privadas de salud con sistemas similares. En clínicas dentales y de estética de Osona hemos registrado reducciones del 40-42%.',
+          text: 'Els recordatoris automàtics per WhatsApp redueixen els no-shows entre el 35% i el 45%, segons estudis de clíniques privades de salut amb sistemes similars. En clíniques dentals i d\'estètica d\'Osona hem registrat reduccions del 40-42%.',
         },
       },
       {
         '@type': 'Question',
-        name: '¿Qué pasa con la privacidad de los datos de mis pacientes?',
+        name: 'Què passa amb la privacitat de les dades dels meus pacients?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Todas las automatizaciones cumplen el RGPD. Los datos de los pacientes se usan exclusivamente para los recordatorios y confirmaciones autorizados por el profesional. No se comparten con terceros.',
+          text: 'Totes les automatitzacions compleixen el RGPD. Les dades dels pacients s\'utilitzen exclusivament per als recordatoris i confirmacions autoritzats pel professional. No es comparteixen amb tercers.',
         },
       },
       {
         '@type': 'Question',
-        name: '¿Cuánto cuesta la automatización de citas para una clínica en Osona?',
+        name: 'Quant costa l\'automatització de cites per a una clínica a Osona?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'El coste varía según la complejidad del sistema y el tamaño de la clínica. Ofrecemos un diagnóstico gratuito de 30 minutos donde analizamos tu operativa y presentamos un presupuesto personalizado sin compromiso.',
+          text: 'El cost varia segons la complexitat del sistema i la mida de la clínica. Oferim un diagnòstic gratuït de 30 minuts on analitzem la teva operativa i presentem un pressupost personalitzat sense compromís.',
         },
       },
     ],
@@ -232,11 +252,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Inicio',               item: 'https://avoidstudio.es' },
-      { '@type': 'ListItem', position: 2, name: 'Calcular pérdidas',    item: 'https://avoidstudio.es/perdidas' },
+      { '@type': 'ListItem', position: 1, name: 'Inici',                item: 'https://avoidstudio.es' },
+      { '@type': 'ListItem', position: 2, name: 'Calcular pèrdues',     item: 'https://avoidstudio.es/perdidas' },
       { '@type': 'ListItem', position: 3, name: 'El sistema',           item: 'https://avoidstudio.es/flujos' },
       { '@type': 'ListItem', position: 4, name: 'Sobre AVOID',          item: 'https://avoidstudio.es/sobre-avoid' },
-      { '@type': 'ListItem', position: 5, name: 'Diagnóstico gratuito', item: 'https://avoidstudio.es/diagnostico' },
+      { '@type': 'ListItem', position: 5, name: 'Diagnòstic gratuït',   item: 'https://avoidstudio.es/diagnostico' },
     ],
   }
 
@@ -247,13 +267,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@id': 'https://avoidstudio.es/#website',
     url: 'https://avoidstudio.es',
     name: 'AVOID Studio',
-    description: 'Automatización de citas para clínicas en Osona. Eliminamos los no-shows con WhatsApp.',
-    inLanguage: ['es', 'ca'],
+    description: 'Automatització de cites per a clíniques a Osona. Eliminem els no-shows amb WhatsApp.',
+    // MILLORA SEO: català primer per reflectir el mercat principal
+    inLanguage: ['ca', 'es'],
     publisher: { '@id': 'https://avoidstudio.es/#business' },
   }
 
   return (
-    <html lang="es" className="scroll-smooth">
+    // MILLORA SEO: lang="ca" en lloc de "es" — el contingut principal és en català
+    // Google utilitza l'atribut lang per determinar l'idioma de la pàgina
+    <html lang="ca" className="scroll-smooth">
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaLocalBusiness) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFAQ) }} />

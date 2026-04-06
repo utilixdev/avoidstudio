@@ -5,13 +5,13 @@ import { ArrowRight, Clock, UserX, TrendingDown, Star, Euro, ChevronDown, Info, 
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-// ── FÓRMULA CANÓNICA (idéntica a ROI.tsx en la home) ─────────────
-// perdidaEquipo    = personas × 15 × 4 × 15
-// perdidaPacientes = citas × 0.35 × precio × 0.4
-// recNoshow        = perdidaNoshow × 0.38
-// recEquipo        = perdidaEquipo × 0.60
-// recReact         = citas × 0.35 × precio × 0.20
-// recHuecos        = noshowsMes × precio × 0.25
+// ── FÓRMULA CANÒNICA (idèntica a ROI.tsx a la home) ─────────────
+// perdudaEquip     = persones × 15 × 4 × 15
+// perdudaPacients  = cites × 0.35 × preu × 0.4
+// recNoshow        = perdudaNoshow × 0.38
+// recEquip         = perdudaEquip × 0.60
+// recReact         = cites × 0.35 × preu × 0.20
+// recBuits         = noshowsMes × preu × 0.25
 
 // ── FADE HELPER ─────────────────────────────────────────────────
 function FadeIn({ children, delay = 0, className = '' }: {
@@ -29,17 +29,17 @@ function FadeIn({ children, delay = 0, className = '' }: {
   )
 }
 
-// ── PERFILES (valores por defecto por sector) ────────────────────
+// ── PERFILS (valors per defecte per sector) ────────────────────
 const PERFILES = [
   {
     id: 'fisio',
-    label: 'Fisioterapia',
+    label: 'Fisioteràpia',
     icon: Activity,
     defaults: { citas: 100, precio: 50, noshow: 10, personas: 1 },
   },
   {
     id: 'estetica',
-    label: 'Estética',
+    label: 'Estètica',
     icon: Scissors,
     defaults: { citas: 160, precio: 75, noshow: 18, personas: 2 },
   },
@@ -51,59 +51,59 @@ const PERFILES = [
   },
 ]
 
-// ── GOTEOS DATA ──────────────────────────────────────────────────
+// ── DADES GOTIMS ──────────────────────────────────────────────────
 const goteos = [
   {
     icon: UserX,
     n: '01',
     color: '#EF4444',
     title: 'El no-show',
-    subtitle: 'El más visible. El que todos conocen pero pocos cuantifican.',
-    stat: '14–22% de tus citas',
+    subtitle: 'El més visible. El que tothom coneix però pocs quantifiquen.',
+    stat: '14–22% de les teves cites',
     explainer:
-      'Entre el 14% y el 22% de las citas en clínicas privadas de salud en España terminan en ausencia. Si tienes 150 citas al mes a 80€ de ticket y un 18% de no-show, son 27 horas vacías × 80€ = 2.160€ al mes que desaparecen sin aparecer en ninguna factura. El tiempo ya estaba bloqueado. El profesional ya estaba disponible. Solo faltaba el paciente.',
+      'Entre el 14% i el 22% de les cites en clíniques privades de salut a Espanya acaben en absència. Si tens 150 cites al mes a 80€ de tiquet i un 18% de no-show, són 27 hores buides × 80€ = 2.160€ al mes que desapareixen sense aparèixer en cap factura. El temps ja estava bloquejat. El professional ja estava disponible. Només faltava el pacient.',
     secondary:
-      'Un recordatorio automático por WhatsApp 48h antes reduce los no-shows entre el 35% y el 45%. En ese ejemplo: de 2.160€ a 1.200€ de pérdida. 960€ recuperados solo con este flujo.',
+      'Un recordatori automàtic per WhatsApp 48h abans redueix els no-shows entre el 35% i el 45%. En aquest exemple: de 2.160€ a 1.200€ de pèrdua. 960€ recuperats només amb aquest flux.',
   },
   {
     icon: Clock,
     n: '02',
     color: '#F97316',
-    title: 'El tiempo de equipo',
-    subtitle: 'El más costoso a escala. Y el más fácil de ignorar.',
-    stat: '15h/semana por persona',
+    title: 'El temps d\'equip',
+    subtitle: 'El més costós a escala. I el més fàcil d\'ignorar.',
+    stat: '15h/setmana per persona',
     explainer:
-      'Confirmar citas por WhatsApp, responder si vienen o no vienen, gestionar cancelaciones a mano, recordar a quién llamar mañana... Son entre 2 y 3 horas diarias de trabajo que no generan ningún ingreso directo. A 15€/hora de coste laboral, una persona del equipo dedicando 15h/semana a esto vale 900€/mes en tiempo puro. Con dos personas, 1.800€/mes. Ese dinero existe, lo estás pagando, y no aparece en ninguna partida de "pérdidas".',
+      'Confirmar cites per WhatsApp, respondre si venen o no venen, gestionar cancel·lacions a mà, recordar a qui trucar demà... Són entre 2 i 3 hores diàries de feina que no generen cap ingrés directe. A 15€/hora de cost laboral, una persona de l\'equip dedicant 15h/setmana a això val 900€/mes en temps pur. Amb dues persones, 1.800€/mes. Aquests diners existeixen, els estàs pagant, i no apareixen en cap partida de "pèrdues".',
     secondary:
-      'El sistema automatiza el 60% de esas tareas. El equipo sigue siendo necesario — pero para lo que importa: tratar pacientes, no perseguir confirmaciones.',
+      'El sistema automatitza el 60% d\'aquestes tasques. L\'equip continua sent necessari — però per al que importa: tractar pacients, no perseguir confirmacions.',
   },
   {
     icon: TrendingDown,
     n: '03',
     color: '#EF4444',
-    title: 'El paciente que no vuelve',
-    subtitle: 'El más caro. Y el que nadie ve venir.',
-    stat: 'El 35–45% no vuelven solos',
+    title: 'El pacient que no torna',
+    subtitle: 'El més car. I el que ningú veu venir.',
+    stat: 'El 35–45% no tornen sols',
     explainer:
-      'Entre el 35% y 45% de los pacientes que tienen una primera sesión no vuelven si no reciben un contacto activo en las semanas siguientes. No es que no quieran — es que nadie les ha recordado que existe esa opción. Para una clínica dental con 150 citas/mes, eso son 52 pacientes al mes que podrían volver pero no lo hacen. Si cada uno representa 3 tratamientos futuros a 120€, el valor perdido supera los 18.000€ anuales en facturación que ya tenías ganada.',
+      'Entre el 35% i el 45% dels pacients que tenen una primera sessió no tornen si no reben un contacte actiu en les setmanes següents. No és que no vulguin — és que ningú els ha recordat que existeix aquesta opció. Per a una clínica dental amb 150 cites/mes, això és 52 pacients al mes que podrien tornar però no ho fan. Si cada un representa 3 tractaments futurs a 120€, el valor perdut supera els 18.000€ anuals en facturació que ja tenies guanyada.',
     secondary:
-      'La reactivación automática a los 90 días contacta a esos pacientes dormidos. El 18–26% de ellos reserva de nuevo sin intervención humana.',
+      'La reactivació automàtica als 90 dies contacta aquests pacients adormits. El 18–26% d\'ells reserva de nou sense intervenció humana.',
   },
   {
     icon: Star,
     n: '04',
     color: '#F59E0B',
-    title: 'La reseña que no llega',
-    subtitle: 'El goteo de captación. Silencioso pero permanente.',
-    stat: '87% busca en Google antes de llamar',
+    title: 'La ressenya que no arriba',
+    subtitle: 'El gotim de captació. Silenciós però permanent.',
+    stat: '87% busca a Google abans de trucar',
     explainer:
-      'El 87% de los pacientes nuevos elige clínica basándose en las reseñas de Google. Una clínica con 50 reseñas no compite contra una con 200 — simplemente no aparece en el top de resultados. Cada paciente satisfecho que no deja reseña porque nadie se lo pidió en el momento correcto es un paciente nuevo que irá a tu competencia. El coste de oportunidad no se mide en euros directos, se mide en pacientes que nunca llegan a llamar.',
+      'El 87% dels pacients nous tria clínica basant-se en les ressenyes de Google. Una clínica amb 50 ressenyes no competeix contra una amb 200 — simplement no apareix als primers resultats. Cada pacient satisfet que no deixa ressenya perquè ningú li ho va demanar en el moment correcte és un pacient nou que anirà a la teva competència. El cost d\'oportunitat no es mesura en euros directes, es mesura en pacients que mai no arriben a trucar.',
     secondary:
-      'El sistema envía el link de reseña 24h después de cada visita, cuando la experiencia está fresca. La tasa de conversión es 4 veces mayor que pedirla en consulta.',
+      'El sistema envia l\'enllaç de ressenya 24h després de cada visita, quan l\'experiència és fresca. La taxa de conversió és 4 vegades major que demanar-la a consulta.',
   },
 ]
 
-// ── ACORDEÓN ─────────────────────────────────────────────────────
+// ── ACORDIÓ ─────────────────────────────────────────────────────
 function GoteoItem({ g, i }: { g: typeof goteos[0]; i: number }) {
   const [open, setOpen] = useState(i === 0)
   const ref = useRef(null)
@@ -173,7 +173,7 @@ function GoteoItem({ g, i }: { g: typeof goteos[0]; i: number }) {
                 <p className="text-white/35 text-xs font-medium leading-relaxed italic">"{g.secondary}"</p>
                 <div>
                   <div className="text-[9px] font-black uppercase tracking-widest mb-1" style={{ color: `${g.color}60` }}>
-                    Impacto real
+                    Impacte real
                   </div>
                   <div className="text-xl font-extrabold tracking-tighter" style={{ color: g.color }}>{g.stat}</div>
                 </div>
@@ -186,7 +186,7 @@ function GoteoItem({ g, i }: { g: typeof goteos[0]; i: number }) {
   )
 }
 
-// ── CALCULADORA CON PERFILES ─────────────────────────────────────
+// ── CALCULADORA AMB PERFILS ─────────────────────────────────────
 function Calculadora() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
@@ -206,7 +206,7 @@ function Calculadora() {
     setPersonas(p.defaults.personas)
   }
 
-  // ── FÓRMULA CANÓNICA ──────────────────────────────────────────
+  // ── FÓRMULA CANÒNICA ──────────────────────────────────────────
   const noshowsMes      = Math.round(citas * noshow / 100)
   const perdidaNoshow   = noshowsMes * precio
   const perdidaEquipo   = personasEquipo * 15 * 4 * 15
@@ -222,16 +222,16 @@ function Calculadora() {
   const pct         = Math.min(Math.round((recTotal / perdidaTotal) * 100), 95)
 
   const sliders = [
-    { label: 'Citas por mes',         val: citas,          set: setCitas,     min: 20,  max: 400, step: 10, suffix: '',  hint: 'Total citas al mes de toda la clínica' },
-    { label: 'Ticket medio / cita',   val: precio,          set: setPrecio,    min: 30,  max: 300, step: 5,  suffix: '€', hint: 'Dental/estética: 80–200€ · Fisio: 40–70€ · Psicología: 60–90€' },
-    { label: 'Tasa de no-shows',      val: noshow,          set: setNoshow,    min: 5,   max: 40,  step: 1,  suffix: '%', hint: 'Media sector privado España: 14–22%. Si no lo sabes, deja 18%.' },
-    { label: 'Personas en el equipo', val: personasEquipo, set: setPersonas, min: 1,   max: 8,   step: 1,  suffix: '',  hint: 'Personas que gestionan citas, WhatsApps y confirmaciones.' },
+    { label: 'Cites per mes',          val: citas,          set: setCitas,     min: 20,  max: 400, step: 10, suffix: '',  hint: 'Total de cites al mes de tota la clínica' },
+    { label: 'Tiquet mitjà / cita',    val: precio,          set: setPrecio,    min: 30,  max: 300, step: 5,  suffix: '€', hint: 'Dental/estètica: 80–200€ · Fisio: 40–70€ · Psicologia: 60–90€' },
+    { label: 'Taxa de no-shows',       val: noshow,          set: setNoshow,    min: 5,   max: 40,  step: 1,  suffix: '%', hint: 'Mitjana sector privat Espanya: 14–22%. Si no ho saps, deixa 18%.' },
+    { label: 'Persones a l\'equip',    val: personasEquipo, set: setPersonas, min: 1,   max: 8,   step: 1,  suffix: '',  hint: 'Persones que gestionen cites, WhatsApps i confirmacions.' },
   ]
 
   return (
     <div ref={ref} className="grid lg:grid-cols-[1.2fr_1fr] gap-10 items-start px-0 sm:px-0 overflow-visible">
 
-      {/* LEFT: CONTROLES */}
+      {/* LEFT: CONTROLS */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -242,7 +242,7 @@ function Calculadora() {
         {/* Selector de perfil */}
         <div className="flex flex-col gap-3">
           <span className="text-[10px] font-black uppercase tracking-widest text-white/20">
-            Selecciona tu especialidad
+            Selecciona la teva especialitat
           </span>
           <div className="grid grid-cols-3 gap-2">
             {PERFILES.map(p => {
@@ -266,7 +266,7 @@ function Calculadora() {
           </div>
         </div>
 
-        {/* Sliders con corrección de ancho y visibilidad */}
+        {/* Sliders amb correcció d'amplada i visibilitat */}
         <div className="flex flex-col gap-8 px-4">
           {sliders.map((s, i) => (
             <div key={i} className="w-full overflow-visible">
@@ -274,7 +274,7 @@ function Calculadora() {
                 <span className="text-xs font-bold uppercase tracking-widest text-white/40">{s.label}</span>
                 <span className="mono font-extrabold text-[#B8FF2E] text-sm flex-shrink-0 ml-4">
                   {s.suffix === '€' && s.suffix}{s.val}{s.suffix === '%' && '%'}
-                  {!s.suffix && s.label.includes('Personas') && ` ${s.val > 1 ? 'personas' : 'persona'}`}
+                  {!s.suffix && s.label.includes('Persones') && ` ${s.val > 1 ? 'persones' : 'persona'}`}
                 </span>
               </div>
               <p className="text-white/20 text-[10px] font-medium mb-3 pr-8">{s.hint}</p>
@@ -299,14 +299,14 @@ function Calculadora() {
           ))}
         </div>
 
-        {/* Desglose pérdidas */}
+        {/* Desglossament pèrdues */}
         <div className="border border-white/[0.06] bg-white/[0.01] p-5 sm:p-6 w-full">
-          <div className="mono text-[9px] text-white/20 mb-4">// Desglose mensual de pérdidas</div>
+          <div className="mono text-[9px] text-white/20 mb-4">// Desglossament mensual de pèrdues</div>
           <div className="flex flex-col gap-3">
             {[
-              { icon: UserX,        label: `${noshowsMes} no-shows × ${precio}€/cita`,                                         val: perdidaNoshow,    color: '#EF4444' },
-              { icon: Clock,        label: `${personasEquipo} persona${personasEquipo > 1 ? 's' : ''} × 15h/sem × 15€/h × 4 sem`,  val: perdidaEquipo,    color: '#F97316' },
-              { icon: TrendingDown, label: '35% pacientes sin seguimiento activo',                                             val: perdidaPacientes, color: '#EF4444' },
+              { icon: UserX,        label: `${noshowsMes} no-shows × ${precio}€/cita`,                                          val: perdidaNoshow,    color: '#EF4444' },
+              { icon: Clock,        label: `${personasEquipo} persona${personasEquipo > 1 ? 'es' : ''} × 15h/set × 15€/h × 4 set`, val: perdidaEquipo,    color: '#F97316' },
+              { icon: TrendingDown, label: '35% pacients sense seguiment actiu',                                                  val: perdidaPacientes, color: '#EF4444' },
             ].map((row, i) => (
               <div key={i} className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-2 min-w-0">
@@ -328,40 +328,40 @@ function Calculadora() {
         </div>
       </motion.div>
 
-      {/* RIGHT: RESULTADOS */}
+      {/* RIGHT: RESULTATS */}
       <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.8, delay: 0.15 }}
         className="flex flex-col gap-4 lg:sticky lg:top-28 w-full"
       >
-        {/* Pérdida */}
+        {/* Pèrdua */}
         <div className="p-6 border border-red-500/20 bg-red-500/[0.03]">
           <div className="text-[10px] font-black uppercase tracking-widest text-red-400/60 mb-2">
-            Pérdida mensual actual
+            Pèrdua mensual actual
           </div>
           <div className="text-4xl font-extrabold tracking-tighter text-red-400">
             −{perdidaTotal.toLocaleString('es-ES')}€
           </div>
           <div className="text-white/25 text-[10px] mt-2 font-medium">
-            No-shows + equipo + pacientes sin seguimiento
+            No-shows + equip + pacients sense seguiment
           </div>
         </div>
 
-        {/* Recuperación */}
+        {/* Recuperació */}
         <div className="p-6 border border-[#B8FF2E]/20 bg-[#B8FF2E]/[0.03]">
           <div className="text-[10px] font-black uppercase tracking-widest text-[#B8FF2E]/60 mb-2">
-            Recuperación con AVOID
+            Recuperació amb AVOID
           </div>
           <div className="text-4xl font-extrabold tracking-tighter text-[#B8FF2E] mb-3">
             +{recTotal.toLocaleString('es-ES')}€
           </div>
           <div className="flex flex-col gap-1.5 mb-3">
             {[
-              { label: 'Reducción no-shows (38%)',      val: recNoshow },
-              { label: 'Equipo liberado (60%)',          val: recEquipo },
-              { label: 'Reactivación pacientes',         val: recReact  },
-              { label: 'Huecos last-minute',             val: recHuecos },
+              { label: 'Reducció no-shows (38%)',     val: recNoshow },
+              { label: 'Equip alliberat (60%)',        val: recEquipo },
+              { label: 'Reactivació pacients',         val: recReact  },
+              { label: 'Buits last-minute',            val: recHuecos },
             ].map((r, i) => (
               <div key={i} className="flex justify-between text-[10px]">
                 <span className="text-[#B8FF2E]/45 font-medium">{r.label}</span>
@@ -377,7 +377,7 @@ function Calculadora() {
             />
           </div>
           <div className="text-white/20 text-[10px] mt-1.5 font-medium">
-            {pct}% de recuperación estimada para este perfil
+            {pct}% de recuperació estimada per a aquest perfil
           </div>
         </div>
 
@@ -386,26 +386,26 @@ function Calculadora() {
           <div className="flex items-start justify-between gap-4 mb-4">
             <div>
               <div className="text-[10px] font-black uppercase tracking-widest text-white/25 mb-1">
-                Recuperas en el primer año
+                Recuperes el primer any
               </div>
               <div className="text-3xl font-extrabold tracking-tighter text-white">
                 +{recAnual.toLocaleString('es-ES')}€
               </div>
               <div className="text-white/25 text-[10px] mt-1">
-                El sistema se amortiza en menos de 2 meses
+                El sistema s'amortitza en menys de 2 mesos
               </div>
             </div>
             <div className="text-right flex-shrink-0">
               <div className="text-[9px] font-black uppercase tracking-widest text-white/20 mb-1">Payback</div>
-              <div className="text-xl font-extrabold text-[#B8FF2E] tracking-tighter">&lt;2 meses</div>
+              <div className="text-xl font-extrabold text-[#B8FF2E] tracking-tighter">&lt;2 mesos</div>
             </div>
           </div>
           <a href="/diagnostico" className="btn-acid w-full justify-center py-4 text-[11px]">
-            Solicitar diagnóstico gratuito <ArrowRight size={13} />
+            Sol·licitar diagnòstic gratuït <ArrowRight size={13} />
           </a>
         </div>
 
-        {/* Fuente */}
+        {/* Font */}
         <div className="flex items-start gap-2 px-2">
           <button onClick={() => setShowInfo(!showInfo)} className="mt-0.5 flex-shrink-0">
             <Info size={11} className="text-white/20 hover:text-white/40 transition-colors" />
@@ -418,14 +418,14 @@ function Calculadora() {
                 exit={{ opacity: 0, height: 0 }}
                 className="text-[9px] text-white/25 font-medium leading-relaxed overflow-hidden"
               >
-                Reducción de no-shows del 38% basada en el rango auditado en clínicas privadas con sistemas de recordatorio automatizado (35–45%, fuentes: Auriia Studio 2026, DoctorConnect 2025). El 60% de liberación de equipo y la tasa de reactivación son estimaciones conservadoras. Tu resultado varía según perfil, ticket y tipo de clínica. El coste de instalación varía y no está incluido.
+                Reducció de no-shows del 38% basada en el rang auditat en clíniques privades amb sistemes de recordatori automatitzat (35–45%, fonts: Auriia Studio 2026, DoctorConnect 2025). El 60% d'alliberació d'equip i la taxa de reactivació són estimacions conservadores. El teu resultat varia segons perfil, tiquet i tipus de clínica. El cost d'instal·lació varia i no està inclòs.
               </motion.p>
             ) : (
               <p
                 className="text-[9px] text-white/20 font-medium italic cursor-pointer hover:text-white/35 transition-colors"
                 onClick={() => setShowInfo(true)}
               >
-                Basado en datos reales de clínicas privadas · Toca para ver metodología
+                Basat en dades reals de clíniques privades · Toca per veure la metodologia
               </p>
             )}
           </AnimatePresence>
@@ -436,7 +436,7 @@ function Calculadora() {
   )
 }
 
-// ── PÁGINA PRINCIPAL ─────────────────────────────────────────────
+// ── PÀGINA PRINCIPAL ─────────────────────────────────────────────
 export default function PerdidasPage() {
   return (
     <main className="relative overflow-x-hidden">
@@ -455,35 +455,35 @@ export default function PerdidasPage() {
             style={{ borderColor: 'rgba(239,68,68,0.25)', color: '#EF4444', background: 'rgba(239,68,68,0.04)' }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-            Análisis de pérdidas reales · Cuatro goteos
+            Anàlisi de pèrdues reals · Quatre gotims
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(3rem,9vw,9rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-6"
           >
-            <span className="text-white/15">Lo que no</span><br />
-            <span className="text-red-500" style={{ textShadow: '0 0 60px rgba(239,68,68,0.25)' }}>ves.</span>
+            <span className="text-white/15">El que no</span><br />
+            <span className="text-red-500" style={{ textShadow: '0 0 60px rgba(239,68,68,0.25)' }}>veus.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
             className="text-white/35 text-base md:text-xl font-medium max-w-2xl leading-relaxed"
           >
-            Tu clínica tiene cuatro goteos distintos de facturación perdida.
-            Ninguno aparece en la contabilidad. Todos se pueden cerrar.{' '}
-            <span className="text-white/55">Esto es lo que te están costando.</span>
+            La teva clínica té quatre gotims diferents de facturació perduda.
+            Cap apareix a la comptabilitat. Tots es poden tancar.{' '}
+            <span className="text-white/55">Això és el que t'estan costant.</span>
           </motion.p>
         </div>
       </section>
 
-      {/* RESUMEN STATS */}
+      {/* RESUM STATS */}
       <section className="section py-12 md:py-16 border-b border-white/5 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { val: '14–22%', label: 'Tasa de no-shows en clínicas privadas', color: '#EF4444' },
-            { val: '15h',    label: 'Por semana de equipo gestionando citas', color: '#F97316' },
-            { val: '35%',    label: 'Pacientes que no vuelven sin seguimiento', color: '#EF4444' },
-            { val: '87%',    label: 'Pacientes nuevos que buscan en Google', color: '#B8FF2E' },
+            { val: '14–22%', label: 'Taxa de no-shows en clíniques privades', color: '#EF4444' },
+            { val: '15h',    label: 'Per setmana d\'equip gestionant cites', color: '#F97316' },
+            { val: '35%',    label: 'Pacients que no tornen sense seguiment', color: '#EF4444' },
+            { val: '87%',    label: 'Pacients nous que busquen a Google', color: '#B8FF2E' },
           ].map((s, i) => (
             <FadeIn key={i} delay={i * 0.07}>
               <div className="p-5 border bg-white/[0.01] text-center" style={{ borderColor: `${s.color}15` }}>
@@ -499,16 +499,16 @@ export default function PerdidasPage() {
         </div>
       </section>
 
-      {/* LOS 4 GOTEOS */}
+      {/* ELS 4 GOTIMS */}
       <section className="section px-6">
         <div className="max-w-5xl mx-auto">
           <FadeIn className="mb-12 md:mb-16">
             <div className="pill mb-6 inline-flex" style={{ borderColor: 'rgba(239,68,68,0.25)', color: '#EF4444', background: 'rgba(239,68,68,0.04)' }}>
-              Los cuatro goteos
+              Els quatre gotims
             </div>
             <h2 className="text-[clamp(2rem,5vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase">
-              <span className="text-white/15">Por dónde se</span><br />
-              <span className="text-red-500">escapa el dinero.</span>
+              <span className="text-white/15">Per on se'n va</span><br />
+              <span className="text-red-500">els diners.</span>
             </h2>
           </FadeIn>
           <div className="flex flex-col gap-2">
@@ -517,35 +517,35 @@ export default function PerdidasPage() {
         </div>
       </section>
 
-      {/* EL EFECTO COMPUESTO */}
+      {/* L'EFECTE COMPOST */}
       <section className="section bg-[#060610] border-y border-white/5 px-6">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <FadeIn>
             <div className="pill mb-8 inline-flex" style={{ borderColor: 'rgba(239,68,68,0.25)', color: '#EF4444', background: 'rgba(239,68,68,0.04)' }}>
-              El efecto compuesto
+              L'efecte compost
             </div>
             <h2 className="text-[clamp(2rem,5vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-8">
-              <span className="text-white/15">Juntos,</span><br />
-              <span className="text-red-500">se multiplican.</span>
+              <span className="text-white/15">Junts,</span><br />
+              <span className="text-red-500">es multipliquen.</span>
             </h2>
             <p className="text-white/40 font-medium leading-relaxed text-sm md:text-base mb-6">
-              El problema no es que existan los no-shows. Es que sin sistema,
-              los cuatro goteos actúan a la vez y cada uno alimenta al siguiente.
+              El problema no és que existeixin els no-shows. És que sense sistema,
+              els quatre gotims actuen alhora i cada un alimenta el següent.
             </p>
             <p className="text-white/30 font-medium leading-relaxed text-sm">
-              Un paciente que no confirma y no aparece → tiempo de equipo perdido
-              intentando localizarle → hueco que no se rellena → alguien que
-              probablemente no vuelva → y que nunca dejará una reseña.{' '}
-              <span className="text-white/55 font-semibold">Un solo no-show activa los cuatro goteos.</span>
+              Un pacient que no confirma i no apareix → temps d'equip perdut
+              intentant localitzar-lo → buit que no es cobreix → algú que
+              probablement no tornarà → i que mai no deixarà una ressenya.{' '}
+              <span className="text-white/55 font-semibold">Un sol no-show activa els quatre gotims.</span>
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col gap-3">
               {[
-                { from: 'No confirma la cita',      to: 'Equipo invierte 20 min en localizar',           color: '#F97316' },
-                { from: 'No aparece',               to: 'Hueco vacío — 60–200€ perdidos',                color: '#EF4444' },
-                { from: 'Sin seguimiento posterior', to: 'No vuelve en los 3 meses siguientes',            color: '#EF4444' },
-                { from: 'Sin petición de reseña',   to: 'Google no crece. Nuevos pacientes a la competencia.', color: '#F59E0B' },
+                { from: 'No confirma la cita',          to: 'Equip inverteix 20 min a localitzar',              color: '#F97316' },
+                { from: 'No apareix',                   to: 'Buit buit — 60–200€ perduts',                      color: '#EF4444' },
+                { from: 'Sense seguiment posterior',    to: 'No torna en els 3 mesos següents',                  color: '#EF4444' },
+                { from: 'Sense petició de ressenya',    to: 'Google no creix. Nous pacients a la competència.', color: '#F59E0B' },
               ].map((row, i) => (
                 <div key={i} className="flex items-start gap-4 p-5 border"
                   style={{ borderColor: `${row.color}12`, background: `${row.color}04` }}>
@@ -573,16 +573,16 @@ export default function PerdidasPage() {
           <FadeIn className="mb-12 md:mb-16">
             <div className="pill mb-6 inline-flex">
               <Euro size={10} />
-              Calculadora personalizada
+              Calculadora personalitzada
             </div>
             <h2 className="text-[clamp(2rem,5vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase">
-              <span className="text-white/15">Tus números,</span><br />
-              <span className="text-[#B8FF2E] acid-glow">tu pérdida real.</span>
+              <span className="text-white/15">Els teus números,</span><br />
+              <span className="text-[#B8FF2E] acid-glow">la teva pèrdua real.</span>
             </h2>
             <p className="text-white/30 text-sm font-medium mt-4 max-w-lg leading-relaxed">
-              Selecciona tu especialidad para cargar los valores por defecto del sector,
-              o ajusta manualmente cada parámetro.
-              El cálculo incluye los cuatro goteos, no solo los no-shows.
+              Selecciona la teva especialitat per carregar els valors per defecte del sector,
+              o ajusta manualment cada paràmetre.
+              El càlcul inclou els quatre gotims, no només els no-shows.
             </p>
           </FadeIn>
           <Calculadora />
@@ -594,26 +594,26 @@ export default function PerdidasPage() {
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <h2 className="text-[clamp(2rem,5vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-8">
-              <span className="text-white/15">Todo esto</span><br />
-              <span className="text-[#B8FF2E] acid-glow">tiene solución.</span>
+              <span className="text-white/15">Tot això</span><br />
+              <span className="text-[#B8FF2E] acid-glow">té solució.</span>
             </h2>
             <p className="text-white/40 font-medium leading-relaxed max-w-2xl mx-auto mb-4 text-base">
-              Un sistema que confirma automáticamente, recuerda, rellena huecos,
-              reactiva pacientes dormidos y pide reseñas en el momento exacto.
+              Un sistema que confirma automàticament, recorda, omple buits,
+              reactiva pacients adormits i demana ressenyes en el moment exacte.
             </p>
             <p className="text-white/55 font-semibold text-lg mb-12">
-              Tú pasas consulta. Nosotros llenamos la silla.
+              Tu passes consulta. Nosaltres omplim la cadira.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href="/diagnostico" className="btn-acid w-full sm:w-auto px-10">
-                Solicitar diagnóstico gratuito <ArrowRight size={13} />
+                Sol·licitar diagnòstic gratuït <ArrowRight size={13} />
               </a>
               <a href="/#sistema" className="btn-ghost w-full sm:w-auto">
-                Ver cómo funciona el sistema
+                Veure com funciona el sistema
               </a>
             </div>
             <p className="text-white/15 text-[10px] font-medium mt-8 mono">
-              Sin compromiso · Setup instalado · 7 flujos activos 24/7
+              Sense compromís · Setup instal·lat · 7 fluxos actius 24/7
             </p>
           </FadeIn>
         </div>

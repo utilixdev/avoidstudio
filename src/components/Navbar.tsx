@@ -25,7 +25,7 @@ export default function Navbar() {
       }
       setLastScrollY(currentScrollY)
     }
-    // Añadido { passive: true } para optimizar el rendimiento del scroll
+    // Afegit { passive: true } per optimitzar el rendiment del scroll
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [lastScrollY, open])
@@ -43,8 +43,8 @@ export default function Navbar() {
   }, [open])
 
   const links = [
-    { label: 'Calcular Pérdidas', href: '/perdidas' },
-    { label: 'Cómo funciona', href: '/como-funciona' },
+    { label: 'Calcular Pèrdues', href: '/perdidas' },
+    { label: 'Com funciona', href: '/como-funciona' },
     { label: 'El Sistema', href: '/sistema' },
     { label: 'Sobre AVOID', href: '/sobre-avoid' },
     { label: 'FAQ', href: '/faq' },
@@ -64,7 +64,7 @@ export default function Navbar() {
           <Image src="/logo.png" alt="Avoid Logo" width={110} height={28} priority className="acid-glow-svg" />
         </Link>
 
-        {/* Desktop Links: Añadido px-1 y gap-6 para evitar cortes por tracking-widest */}
+        {/* Desktop Links: Afegit px-1 i gap-6 per evitar talls per tracking-widest */}
         <div className="hidden md:flex items-center gap-6">
           {links.map(l => (
             <Link 
@@ -87,13 +87,13 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <Link href="/diagnostico" className="btn-acid text-[10px] py-3 px-6">DIAGNÓSTICO <ArrowRight size={12} /></Link>
+          <Link href="/diagnostico" className="btn-acid text-[10px] py-3 px-6">DIAGNÒSTIC <ArrowRight size={12} /></Link>
         </div>
 
         <button 
           onClick={() => setOpen(!open)}
           className="relative w-10 h-10 flex flex-col items-center justify-center gap-1.5 md:hidden z-[130] bg-white/5 rounded-full"
-          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          aria-label={open ? "Tancar menú" : "Obrir menú"}
         >
           <motion.span 
             animate={open ? { rotate: 45, y: 4, width: 20 } : { rotate: 0, y: 0, width: 24 }}
@@ -149,7 +149,7 @@ export default function Navbar() {
               transition={{ delay: 0.3 }}
               className="mt-4"
             >
-              <Link href="/diagnostico" onClick={() => setOpen(false)} className="btn-acid scale-110 origin-left">Solicitar Demo <ArrowRight size={14} /></Link>
+              <Link href="/diagnostico" onClick={() => setOpen(false)} className="btn-acid scale-110 origin-left">Sol·licitar Demo <ArrowRight size={14} /></Link>
             </motion.div>
           </motion.div>
         )}

@@ -82,7 +82,7 @@ export default function Hero() {
   <section ref={ref} className="relative min-h-screen flex flex-col items-center pt-32 pb-32 overflow-hidden grid-bg">
     <ParticleCanvas />
 
-    {/* Acid orb - Bajada un poco para no molestar al texto */}
+    {/* Acid orb - Baixat una mica per no molestar el text */}
     <div className="absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
       style={{ background: 'radial-gradient(circle, rgba(184,255,46,0.06) 0%, transparent 70%)' }} />
 
@@ -97,7 +97,7 @@ export default function Hero() {
       >
         <div className="pill">
           <span className="w-1.5 h-1.5 rounded-full bg-[#B8FF2E] animate-pulse" />
-          Automatización de citas para clínicas · WhatsApp + Google Calendar 
+          Automatització de cites per a clíniques · WhatsApp + Google Calendar 
         </div>
       </motion.div>
 
@@ -108,8 +108,8 @@ export default function Hero() {
         transition={{ duration: 0.9, delay: 0.1, ease: [0.22,1,0.36,1] }}
         className="text-[clamp(3.5rem,8vw,8rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase mb-4"
       >
-        <span className="block text-white/20">TU AGENDA </span>
-        <span className="block text-[#B8FF2E] acid-glow">SE LLENA SOLA.</span>
+        <span className="block text-white/20">LA TEVA AGENDA </span>
+        <span className="block text-[#B8FF2E] acid-glow">S'OMPLE SOLA.</span>
       </motion.h1>
 
       <motion.p
@@ -118,9 +118,9 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 0.35 }}
         className="text-lg md:text-xl text-white/40 font-medium max-w-2xl mx-auto mb-14 leading-relaxed"
       >
-        El sistema revisa tu agenda cada mañana, recuerda a tus pacientes por WhatsApp y rellena los huecos cuando alguien cancela. 
-        Sin tocar tu software. Sin formación de equipo. <br/><br/>
-        <span className="text-white/60">Tú pasas consulta. La silla la llenamos nosotros.</span>
+        El sistema revisa la teva agenda cada matí, recorda els teus pacients per WhatsApp i omple els buits quan algú cancel·la. 
+        Sense tocar el teu programari. Sense formació d'equip. <br/><br/>
+        <span className="text-white/60">Tu passes consulta. La cadira la omplim nosaltres.</span>
       </motion.p>
 
       {/* CTA row */}
@@ -130,17 +130,17 @@ export default function Hero() {
         transition={{ duration: 0.7, delay: 0.5 }}
         className="flex flex-col sm:flex-row items-center justify-center gap-4"
       >
-        {/* Lógica de navegación a /perdidas */}
+        {/* Lògica de navegació a /perdudes */}
         <Link href="/perdidas" className="btn-acid">
-          Calcular cuánto estoy perdiendo <ArrowRight size={12} />
+          Calcular quant estic perdent <ArrowRight size={12} />
         </Link>
 
-        {/* Lógica anterior comentada para enviar a usuario a la seccion de la misma página:
+        {/* Lògica anterior comentada per enviar l'usuari a la secció de la mateixa pàgina:
         <button 
           onClick={() => document.getElementById('roi')?.scrollIntoView({ behavior: 'smooth' })} 
           className="btn-acid"
         >
-          Calcular cuánto estoy perdiendo <ArrowRight size={12} />
+          Calcular quant estic perdent <ArrowRight size={12} />
         </button> 
         */}
 
@@ -148,11 +148,11 @@ export default function Hero() {
           onClick={() => document.getElementById('sistema')?.scrollIntoView({ behavior: 'smooth' })} 
           className="btn-ghost"
         >
-          Ver cómo funciona
+          Veure com funciona
         </button>
       </motion.div>
 
-      {/* Ticker stats - Con un margen superior un poco más corto para ganar espacio */}
+      {/* Ticker stats - Amb un marge superior una mica més curt per guanyar espai */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -161,10 +161,10 @@ export default function Hero() {
       >
         <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-16">
           {[
-            { val: '−38%', label: 'Menos no-shows' },
-            { val: '+1.200€', label: 'Recuperados/mes*' },
-            { val: '72h', label: 'Setup completo' },
-            { val: '24/7', label: 'Sin intervención' },
+            { val: '−38%', label: 'Menys no-shows' },
+            { val: '+1.200€', label: 'Recuperats/mes*' },
+            { val: '72h', label: 'Setup complet' },
+            { val: '24/7', label: 'Sense intervenció' },
           ].map((s, i) => (
             <div key={i} className="text-center min-w-[120px]">
               <div className="text-2xl md:text-3xl font-extrabold text-[#B8FF2E] tracking-tighter leading-none">{s.val}</div>
@@ -173,22 +173,22 @@ export default function Hero() {
           ))}
         </div>
         
-        {/* Nota al pie con CTA - Ahora con más margen para que respire */}
+        {/* Nota al peu amb CTA - Ara amb més marge perquè respiri */}
         <div className="mt-10 pb-10">
            <p className="text-[10px] mono text-white/50 tracking-wide">
-             *Media para clínica con 2 profesionales y ticket de 80€. 
+             *Mitjana per a clínica amb 2 professionals i tiquet de 80€. 
              <button 
                onClick={() => document.getElementById('roi')?.scrollIntoView({ behavior: 'smooth' })}
                className="ml-2 text-white/70 hover:text-[#B8FF2E] underline underline-offset-4 transition-colors font-bold"
              >
-               Calcula el tuyo →
+               Calcula el teu →
              </button>
            </p>
         </div>
       </motion.div>
     </motion.div>
 
-    {/* Scroll cue - Subido un poco más con bottom-6 */}
+    {/* Scroll cue - Pujat una mica més amb bottom-6 */}
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

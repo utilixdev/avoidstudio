@@ -7,29 +7,29 @@ const pains = [
   {
     icon: UserX,
     num: '−18%',
-    label: 'Facturación directa',
-    text: 'Cada cita vacía es dinero que no vuelve. Con 8 pacientes al día, un no-show diario ya desequilibra el mes.',
+    label: 'Facturació directa',
+    text: 'Cada cita buida és diners que no tornen. Amb 8 pacients al dia, un no-show diari ja desequilibra el mes.',
     color: '#FF4444',
   },
   {
     icon: Clock,
     num: '15h',
-    label: 'Por semana de tu equipo',
-    text: 'Cada WhatsApp gestionado a mano, cada llamada para confirmar, cada cancelación redirigida. Son horas que tu equipo paga con salario y tú no ves en ninguna factura.',
+    label: 'Per setmana del teu equip',
+    text: 'Cada WhatsApp gestionat a mà, cada trucada per confirmar, cada cancel·lació redirigida. Són hores que el teu equip paga amb salari i tu no veus en cap factura.',
     color: '#FF8800',
   },
   {
     icon: TrendingDown,
     num: '4/10',
-    label: 'Pacientes no vuelven',
-    text: 'Sin seguimiento activo, casi la mitad de los pacientes desaparecen después de la primera sesión.',
+    label: 'Pacients no tornen',
+    text: 'Sense seguiment actiu, gairebé la meitat dels pacients desapareixen després de la primera sessió.',
     color: '#FF4444',
   },
   {
     icon: AlertTriangle,
     num: 'El 87% ',
-    label: 'Elige clínica por Google',
-    text: 'Sin reseñas, no apareces. Sin aparecer, no llaman. Cada visita sin petición de reseña es visibilidad que regala a tu competencia.',
+    label: 'Tria clínica per Google',
+    text: 'Sense ressenyes, no apareixes. Sense aparèixer, no truquen. Cada visita sense petició de ressenya és visibilitat que regales a la teva competència.',
     color: '#FF8800',
   },
 ]
@@ -51,7 +51,7 @@ export default function Problema() {
             style={{ borderColor: 'rgba(255,68,68,0.3)', color: '#FF4444', background: 'rgba(255,68,68,0.04)' }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-            Lo que pierdes cada semana
+            El que perds cada setmana
           </motion.div>
 
           <motion.h2
@@ -60,8 +60,8 @@ export default function Problema() {
             transition={{ duration: 0.8, ease: [0.22,1,0.36,1] }}
             className="text-[clamp(2.8rem,7vw,7rem)] font-extrabold leading-[0.85] tracking-[-0.04em] uppercase"
           >
-            <span className="text-white/15">Las pérdidas</span><br />
-            <span className="text-red-500" style={{ textShadow: '0 0 40px rgba(255,68,68,0.3)' }}>que no ves.</span>
+            <span className="text-white/15">Les pèrdues</span><br />
+            <span className="text-red-500" style={{ textShadow: '0 0 40px rgba(255,68,68,0.3)' }}>que no veus.</span>
           </motion.h2>
         </div>
 
@@ -116,13 +116,13 @@ export default function Problema() {
           className="mt-12 p-8 border border-white/5 bg-white/[0.02] flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <p className="text-white/40 text-sm font-medium max-w-xl">
-            Una clínica con 120 citas/mes, ticket de 80€ y un <span className="text-white font-bold"> 18% de no-shows </span> pierde {' '}
-            <span className="text-red-400 font-bold"> 1.728€/mes </span> solo en huecos vacíos. 
-          Sin contar el tiempo de equipo ni los pacientes que no vuelven. Con los cuatro goteos, la pérdida real supera los 3.000€/mes.
+            Una clínica amb 120 cites/mes, tiquet de 80€ i un <span className="text-white font-bold"> 18% de no-shows </span> perd {' '}
+            <span className="text-red-400 font-bold"> 1.728€/mes </span> només en buits buits. 
+          Sense comptar el temps d'equip ni els pacients que no tornen. Amb els quatre gotims, la pèrdua real supera els 3.000€/mes.
           </p>
 
           <a href="#sistema" className="btn-acid flex-shrink-0">
-            Ver cómo lo paramos →
+            Veure com ho aturem →
           </a>
         </motion.div>
       </div>
