@@ -8,7 +8,7 @@ import './globals.css'
 // ("automatització cites clínica Vic") que Google ara indexa de forma independent.
 export const metadata: Metadata = {
   title: 'Automatització de cites per a clíniques a Vic i Osona · AVOID Studio',
-  description: 'Eliminem els no-shows en clíniques de Vic, Manlleu i Torelló amb WhatsApp + Google Calendar. Setup 72h. Sense canviar el teu programari. Diagnòstic gratuït.',
+  description: 'Eliminem els no-shows en clíniques de Vic, Manlleu, Torelló i Catalunya Central  amb WhatsApp + Google Calendar. Setup 72h. Sense canviar el teu programari. Diagnòstic gratuït.',
   icons: {
     icon: '/favicon.png',
     shortcut: '/favicon.png',

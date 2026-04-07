@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://avoidstudio.es/</loc>
+    <lastmod>2026-04-07</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://avoidstudio.es/sistema</loc>
+    <lastmod>2026-04-07</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://avoidstudio.es/perdidas</loc>
+    <lastmod>2026-04-07</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://avoidstudio.es/diagnostico</loc>
+    <lastmod>2026-04-07</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://avoidstudio.es/faq</loc>
+    <lastmod>2026-04-07</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://avoidstudio.es/sobre-avoid</loc>
+    <lastmod>2026-04-07</lastmod>
+    <priority>0.60</priority>
+  </url>
+</urlset>
