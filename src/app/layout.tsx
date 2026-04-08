@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon.png',
     apple: '/favicon.png',
   },
-};
+  
   keywords: [
     'automatització cites clíniques Vic',
     'eliminar no-shows fisioteràpia Osona',
