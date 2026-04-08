@@ -6,10 +6,17 @@ export const metadata: Metadata = {
   title: 'Automatització de cites per a clíniques a Vic i Osona · AVOID Studio',
   description: 'Eliminem els no-shows en clíniques de Vic, Manlleu, Torelló i Catalunya Central amb WhatsApp + Google Calendar. Setup 72h. Sense canviar el teu programari. Diagnòstic gratuït.',
   icons: {
-    icon: '/favicon.png',
+    icon: [
+      {
+        url: '/favicon.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+    ],
     shortcut: '/favicon.png',
     apple: '/favicon.png',
   },
+};
   keywords: [
     'automatització cites clíniques Vic',
     'eliminar no-shows fisioteràpia Osona',
