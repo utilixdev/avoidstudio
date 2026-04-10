@@ -20,10 +20,10 @@ const noList = [
 ]
 
 const results = [
-  { val: '14 hores lliures/mes a recepció', label: 'Fisioteràpia · Madrid' },
-  { val: '−42% no-shows en implants', label: 'Clínica dental · Sevilla' },
-  { val: '+22 sessions reactivades/mes', label: 'Medicina Estètica · Barcelona' },
-  { val: '+24 ressenyes (4.9 estrelles)', label: 'Psicologia · Bilbao' },
+  { val: '14 hores lliures/mes a recepció', label: 'Estalvi estimat en recepció' },
+  { val: '−42% no-shows en implants', label: 'Objectiu en no-shows' },
+  { val: '+22 sessions reactivades/mes', label: 'Potencial de reactivació' },
+  { val: '+24 ressenyes (4.9 estrelles)', label: 'Objectiu en reputació Google' },
 ]
 
 const roles = ['Fundador/a', 'CEO / Director General', 'Director d\'Operacions', 'Soci/a', 'Altre']
