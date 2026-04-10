@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import Script from 'next/script' // 1. IMPORTA AIXÒ
 
 // ── METADATA ────────────────────────────────────────────────────
 export const metadata: Metadata = {
@@ -194,6 +195,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ca" className="scroll-smooth">
       <head>
+        {/* 2. ENGANXA AIXÒ AQUÍ SOTA DEL <head> */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-942717987"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-942717987');
+          `}
+        </Script>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaLocalBusiness) }} />
         {/* L'script de FAQ s'ha eliminat d'aquí per evitar el duplicat amb /faq/page.tsx */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaBreadcrumb) }} />
