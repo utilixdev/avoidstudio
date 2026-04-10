@@ -104,40 +104,45 @@ function Select({ label, options, value, onChange }: any) {
 export default function DiagnosticoPage() {
   const formRef = useRef<HTMLDivElement>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
   
-  // Form State
   const [form, setForm] = useState({
     nombre: '', email: '', tel: '', rol: '', clinica: '', sector: '', facturacion: ''
   })
 
   const scrollToForm = () => formRef.current?.scrollIntoView({ behavior: 'smooth' })
 
-  // Dins de DiagnosticoPage()
-const [loading, setLoading] = useState(false) // Opcional: per a feedback visual
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault()
-  setLoading(true)
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
 
-  try {
-    const response = await fetch('/api/send', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
-    })
-
-    if (response.ok) {
-      setSubmitted(true)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    } else {
-      alert("Hi ha hagut un error en enviar. Si us plau, torna-ho a intentar.")
+      if (response.ok) {
+        // ── TRACKING DE CONVERSIÓ DE GOOGLE ADS ──────────────────
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'conversion', {
+            'send_to': 'AW-942717987/LWE9CI75-N4ZEKP4wsED',
+          });
+        }
+        // ──────────────────────────────────────────────────────────
+        
+        setSubmitted(true)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        alert("Hi ha hagut un error en enviar. Si us plau, torna-ho a intentar.")
+      }
+    } catch (error) {
+      console.error("Error:", error)
+    } finally {
+      setLoading(false)
     }
-  } catch (error) {
-    console.error("Error:", error)
-  } finally {
-    setLoading(false)
   }
-}
 
   if (submitted) {
     return (
